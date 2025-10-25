@@ -265,7 +265,7 @@ export type { ${types} } from './${name}';
 /**
  * Main function to generate component
  */
-async function generateComponentFiles(options: GenerateComponentOptions): Promise<void> {
+function generateComponentFiles(options: GenerateComponentOptions): void {
   const { name } = options;
   const kebabName = toKebabCase(name);
   const componentDir = path.join(process.cwd(), 'src', 'components', kebabName);
@@ -319,11 +319,13 @@ if (!/^[A-Z][a-zA-Z0-9]*$/.test(componentName)) {
   process.exit(1);
 }
 
-generateComponentFiles({
-  name: componentName,
-  hasVariants: true,
-  hasSizes: true,
-}).catch((error) => {
+try {
+  generateComponentFiles({
+    name: componentName,
+    hasVariants: true,
+    hasSizes: true,
+  });
+} catch (error) {
   console.error('❌ Error generating component:', error);
   process.exit(1);
-});
+}

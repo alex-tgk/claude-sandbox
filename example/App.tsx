@@ -273,7 +273,7 @@ export function App() {
       >
         <div className="space-y-3">
           <p className="text-text-muted">
-            We've received your message and will get back to you soon.
+            We&apos;ve received your message and will get back to you soon.
           </p>
 
           <div className="rounded-lg bg-success-light p-3">

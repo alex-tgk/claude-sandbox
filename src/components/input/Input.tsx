@@ -219,6 +219,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       getVariantClasses(variant, hasError),
       getSizeClasses(size),
       isFullWidth && 'w-full',
+      // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
       (startAdornment || endAdornment) && 'pr-10',
       className
     );

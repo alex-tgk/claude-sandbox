@@ -88,9 +88,8 @@ describe('Input', () => {
       expect(handleChange).toHaveBeenCalled();
     });
 
-    it('updates value when controlled', async () => {
+    it('updates value when controlled', () => {
       const handleChange = vi.fn();
-      const user = userEvent.setup();
 
       const { rerender } = render(
         <Input value="initial" onChange={handleChange} />

@@ -204,6 +204,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         type={type}
+        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
         disabled={disabled || isLoading}
         className={classes}
         {...props}
