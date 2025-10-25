@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 /**
- * Tailwind CSS v4 configuration for the modular UI system.
+ * Tailwind CSS v3 configuration for the modular UI system.
  *
  * @remarks
  * - Uses CSS variables for theming (light/dark/system modes)
@@ -10,7 +10,7 @@ import type { Config } from 'tailwindcss';
  * - Tree-shakable and optimized for production
  */
 const config: Config = {
-  content: ['./src/**/*.{ts,tsx}', './stories/**/*.{ts,tsx}'],
+  content: ['./src/**/*.{ts,tsx}', './example/**/*.{ts,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -49,9 +49,13 @@ const config: Config = {
         },
         // Semantic colors
         error: 'var(--error)',
+        'error-light': 'var(--error-light)',
         warning: 'var(--warning)',
+        'warning-light': 'var(--warning-light)',
         success: 'var(--success)',
+        'success-light': 'var(--success-light)',
         info: 'var(--info)',
+        'info-light': 'var(--info-light)',
       },
       borderRadius: {
         sm: 'var(--radius-sm)',
