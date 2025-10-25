@@ -71,15 +71,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const getVariantClasses = (variant: ButtonVariant): string => {
   const variants: Record<ButtonVariant, string> = {
     primary:
-      'bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800 focus-visible:ring-brand-500',
+      'bg-interactive text-text-on-color hover:bg-interactive-hover active:bg-interactive-active focus-visible:ring-interactive border border-transparent',
     secondary:
-      'bg-surface-muted text-text hover:bg-surface-hover active:bg-surface-active focus-visible:ring-border',
+      'bg-surface-muted text-text-primary hover:bg-surface-hover active:bg-surface-active focus-visible:ring-border-interactive border border-transparent',
     outline:
-      'border-2 border-border bg-transparent text-text hover:bg-surface-muted active:bg-surface-hover focus-visible:ring-border-focus',
+      'border border-border-strong bg-transparent text-text-primary hover:bg-surface-hover active:bg-surface-active focus-visible:ring-border-interactive',
     ghost:
-      'bg-transparent text-text hover:bg-surface-muted active:bg-surface-hover focus-visible:ring-border',
+      'bg-transparent text-text-primary hover:bg-surface-hover active:bg-surface-active focus-visible:ring-border-interactive border border-transparent',
     danger:
-      'bg-error text-white hover:bg-red-700 active:bg-red-800 focus-visible:ring-error',
+      'bg-error text-text-on-color hover:opacity-90 active:opacity-80 focus-visible:ring-error border border-transparent',
   };
 
   return variants[variant];
@@ -182,12 +182,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       'inline-flex items-center justify-center gap-2',
       // Typography
       'font-medium',
-      // Border
-      'rounded-md',
-      // Transitions
-      'transition-interactive',
-      // Focus
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+      // Border - Sharp corners like IBM Carbon
+      'rounded-none',
+      // Transitions - Carbon uses 110ms
+      'transition-all duration-110',
+      // Focus - Inset focus ring like Carbon
+      'focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-border-focus',
       // Disabled state
       'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
     ];

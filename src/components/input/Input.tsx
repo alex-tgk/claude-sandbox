@@ -87,13 +87,13 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
  */
 const getVariantClasses = (variant: InputVariant, hasError: boolean): string => {
   if (hasError || variant === 'error') {
-    return 'border-error focus:border-error focus:ring-error';
+    return 'border-error focus:border-error focus:outline focus:outline-2 focus:outline-offset-[-2px] focus:outline-border-focus';
   }
 
   const variants: Record<InputVariant, string> = {
-    default: 'border-border focus:border-brand-500 focus:ring-brand-500',
-    error: 'border-error focus:border-error focus:ring-error',
-    success: 'border-success focus:border-success focus:ring-success',
+    default: 'border-border-subtle focus:border-interactive focus:outline focus:outline-2 focus:outline-offset-[-2px] focus:outline-border-focus',
+    error: 'border-error focus:border-error focus:outline focus:outline-2 focus:outline-offset-[-2px] focus:outline-border-focus',
+    success: 'border-success focus:border-success focus:outline focus:outline-2 focus:outline-offset-[-2px] focus:outline-border-focus',
   };
 
   return variants[variant];
@@ -199,19 +199,19 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       'block',
       // Typography
       'font-normal',
-      // Border
-      'border rounded-md',
-      // Background
-      'bg-surface',
-      'text-text',
+      // Border - Sharp corners like Carbon
+      'border rounded-none',
+      // Background - Carbon field colors
+      'bg-field-01',
+      'text-text-primary',
       // Placeholder
-      'placeholder:text-text-muted',
-      // Transitions
-      'transition-interactive',
-      // Focus
-      'focus:outline-none focus:ring-2 focus:ring-offset-0',
+      'placeholder:text-text-placeholder',
+      // Transitions - Carbon timing
+      'transition-all duration-110',
+      // Focus - Inset focus like Carbon
+      'focus:outline-none',
       // Disabled state
-      'disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-surface-muted',
+      'disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-layer-01',
     ];
 
     const inputClasses = cn(
@@ -231,11 +231,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={id}
-            className="mb-1.5 block text-sm font-medium text-text"
+            className="mb-2 block text-sm font-normal text-text-secondary"
           >
             {label}
             {isRequired && (
-              <span className="ml-1 text-error" aria-label="required">
+              <span className="ml-1 text-text-error" aria-label="required">
                 *
               </span>
             )}

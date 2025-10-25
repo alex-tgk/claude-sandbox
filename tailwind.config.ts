@@ -2,12 +2,14 @@ import type { Config } from 'tailwindcss';
 
 /**
  * Tailwind CSS v3 configuration for the modular UI system.
+ * IBM Carbon Design System Inspired
  *
  * @remarks
- * - Uses CSS variables for theming (light/dark/system modes)
+ * - Uses CSS variables for theming (white/g10, dark/g100 modes)
  * - Design tokens are defined in src/styles/tokens.css
  * - Zero runtime CSS-in-JS, all utilities are static
  * - Tree-shakable and optimized for production
+ * - Sharp corners and IBM Blue color scheme
  */
 const config: Config = {
   content: ['./src/**/*.{ts,tsx}', './example/**/*.{ts,tsx}'],
@@ -15,37 +17,68 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand colors using CSS variables
+        // Brand colors - IBM Blue scale
         brand: {
+          10: 'var(--brand-10)',
+          20: 'var(--brand-20)',
+          30: 'var(--brand-30)',
+          40: 'var(--brand-40)',
           50: 'var(--brand-50)',
+          60: 'var(--brand-60)', // Primary IBM Blue
+          70: 'var(--brand-70)',
+          80: 'var(--brand-80)',
+          90: 'var(--brand-90)',
           100: 'var(--brand-100)',
-          200: 'var(--brand-200)',
-          300: 'var(--brand-300)',
-          400: 'var(--brand-400)',
-          500: 'var(--brand-500)',
-          600: 'var(--brand-600)',
-          700: 'var(--brand-700)',
-          800: 'var(--brand-800)',
-          900: 'var(--brand-900)',
-          950: 'var(--brand-950)',
         },
-        // Surface colors
+        // Layer colors - Carbon UI layers
+        layer: {
+          '01': 'var(--layer-01)',
+          '02': 'var(--layer-02)',
+          '03': 'var(--layer-03)',
+          'accent-01': 'var(--layer-accent-01)',
+        },
+        // Field colors
+        field: {
+          '01': 'var(--field-01)',
+          '02': 'var(--field-02)',
+        },
+        // Surface colors (legacy support)
         surface: {
           DEFAULT: 'var(--surface)',
           muted: 'var(--surface-muted)',
           hover: 'var(--surface-hover)',
           active: 'var(--surface-active)',
         },
-        // Text colors
+        // Text colors - Carbon text hierarchy
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-placeholder': 'var(--text-placeholder)',
+        'text-on-color': 'var(--text-on-color)',
+        'text-helper': 'var(--text-helper)',
+        'text-error': 'var(--text-error)',
+        'text-inverse': 'var(--text-inverse)',
+        // Text colors (legacy support)
         text: {
           DEFAULT: 'var(--text)',
           muted: 'var(--text-muted)',
           inverse: 'var(--text-inverse)',
         },
-        // Border colors
+        // Border colors - Carbon borders
+        'border-subtle': 'var(--border-subtle)',
+        'border-strong': 'var(--border-strong)',
+        'border-inverse': 'var(--border-inverse)',
+        'border-interactive': 'var(--border-interactive)',
+        'border-focus': 'var(--border-focus)',
+        // Border (legacy support)
         border: {
           DEFAULT: 'var(--border)',
           focus: 'var(--border-focus)',
+        },
+        // Interactive colors
+        interactive: {
+          DEFAULT: 'var(--interactive)',
+          hover: 'var(--interactive-hover)',
+          active: 'var(--interactive-active)',
         },
         // Semantic colors
         error: 'var(--error)',
@@ -92,9 +125,12 @@ const config: Config = {
       },
       transitionDuration: {
         DEFAULT: 'var(--transition-duration)',
+        '110': '110ms', // Carbon standard transition
       },
       transitionTimingFunction: {
         DEFAULT: 'var(--transition-timing)',
+        'productive': 'cubic-bezier(0.2, 0, 0.38, 0.9)', // Carbon productive
+        'expressive': 'cubic-bezier(0.4, 0.14, 0.3, 1)', // Carbon expressive
       },
       keyframes: {
         'fade-in': {

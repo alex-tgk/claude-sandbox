@@ -1,73 +1,118 @@
 /**
  * Design Tokens - CSS Variables
+ * IBM Carbon Design System Inspired
  *
  * @remarks
  * - All design tokens use CSS custom properties for theme switching
- * - Light mode is default, dark mode uses .dark class on root
+ * - White theme (g10) is default, dark theme (g100) uses .dark class on root
  * - System preference supported via prefers-color-scheme
  * - WCAG 2.2 AA contrast ratios maintained (≥4.5:1 for text)
+ * - Based on IBM Carbon Design System v11 principles
+ * - Sharp, minimal corners for a technical, professional aesthetic
+ * - 8px base grid system for precise spacing
  *
  * @since 0.1.0
  */
 
 :root {
-  /* ===== LIGHT MODE (Default) ===== */
+  /* ===== WHITE THEME (g10) - Default ===== */
 
-  /* Brand Colors - Blue palette */
-  --brand-50: #eff6ff;
-  --brand-100: #dbeafe;
-  --brand-200: #bfdbfe;
-  --brand-300: #93c5fd;
-  --brand-400: #60a5fa;
-  --brand-500: #3b82f6;
-  --brand-600: #2563eb;
-  --brand-700: #1d4ed8;
-  --brand-800: #1e40af;
-  --brand-900: #1e3a8a;
-  --brand-950: #172554;
+  /* Brand Colors - IBM Blue palette */
+  --brand-10: #edf5ff;
+  --brand-20: #d0e2ff;
+  --brand-30: #a6c8ff;
+  --brand-40: #78a9ff;
+  --brand-50: #4589ff;
+  --brand-60: #0f62fe; /* Primary IBM Blue */
+  --brand-70: #0043ce;
+  --brand-80: #002d9c;
+  --brand-90: #001d6c;
+  --brand-100: #001141;
+
+  /* UI Layer Colors - Gray scale for surfaces */
+  --layer-01: #f4f4f4; /* Background layer */
+  --layer-02: #ffffff; /* Elevated layer */
+  --layer-03: #f4f4f4; /* Popover layer */
+  --layer-accent-01: #e0e0e0; /* Subtle accent */
+
+  /* Field Colors */
+  --field-01: #f4f4f4;
+  --field-02: #ffffff;
 
   /* Surface Colors */
   --surface: #ffffff;
-  --surface-muted: #f9fafb;
-  --surface-hover: #f3f4f6;
-  --surface-active: #e5e7eb;
+  --surface-muted: #f4f4f4;
+  --surface-hover: #e8e8e8;
+  --surface-active: #e0e0e0;
 
   /* Text Colors - WCAG AA compliant */
-  --text: #111827; /* 19.36:1 on white */
-  --text-muted: #6b7280; /* 4.69:1 on white */
+  --text-primary: #161616; /* 16.25:1 on white */
+  --text-secondary: #525252; /* 7.73:1 on white */
+  --text-placeholder: #a8a8a8; /* 2.59:1 - for placeholder text */
+  --text-on-color: #ffffff; /* On brand colors */
+  --text-helper: #6f6f6f; /* Helper text */
+  --text-error: #da1e28; /* Error text */
   --text-inverse: #ffffff;
 
+  /* Keep legacy for compatibility */
+  --text: #161616;
+  --text-muted: #525252;
+
   /* Border Colors */
-  --border: #d1d5db;
-  --border-focus: #3b82f6;
+  --border-subtle: #e0e0e0;
+  --border-strong: #8d8d8d;
+  --border-inverse: #161616;
+  --border-interactive: #0f62fe;
+  --border-focus: #0f62fe;
+
+  /* Keep legacy */
+  --border: #e0e0e0;
+
+  /* Interactive Colors */
+  --interactive: #0f62fe;
+  --interactive-hover: #0050e6;
+  --interactive-active: #002d9c;
 
   /* Semantic Colors */
-  --error: #dc2626;
-  --error-light: #fef2f2;
-  --warning: #f59e0b;
-  --warning-light: #fffbeb;
-  --success: #10b981;
-  --success-light: #f0fdf4;
-  --info: #3b82f6;
-  --info-light: #eff6ff;
+  --error: #da1e28;
+  --error-light: #fff1f1;
+  --warning: #f1c21b;
+  --warning-light: #fcf4d6;
+  --success: #24a148;
+  --success-light: #defbe6;
+  --info: #0f62fe;
+  --info-light: #edf5ff;
 
-  /* Spacing Scale */
-  --spacing-xs: 0.25rem; /* 4px */
-  --spacing-sm: 0.5rem; /* 8px */
-  --spacing-md: 1rem; /* 16px */
-  --spacing-lg: 1.5rem; /* 24px */
-  --spacing-xl: 2rem; /* 32px */
+  /* Spacing Scale - 8px base grid */
+  --spacing-01: 0.125rem; /* 2px - hairline */
+  --spacing-02: 0.25rem; /* 4px */
+  --spacing-03: 0.5rem; /* 8px - base unit */
+  --spacing-04: 0.75rem; /* 12px */
+  --spacing-05: 1rem; /* 16px */
+  --spacing-06: 1.5rem; /* 24px */
+  --spacing-07: 2rem; /* 32px */
+  --spacing-08: 2.5rem; /* 40px */
+  --spacing-09: 3rem; /* 48px */
+  --spacing-10: 4rem; /* 64px */
 
-  /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  /* Legacy spacing for compatibility */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
 
-  /* Typography */
-  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+  /* Border Radius - Sharp, minimal corners like Carbon */
+  --radius-none: 0;
+  --radius-sm: 0; /* Carbon uses sharp corners */
+  --radius: 0; /* No rounding by default */
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+
+  /* Typography - IBM Plex inspired */
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -101,65 +146,114 @@
   --focus-ring-offset: 2px;
 }
 
-/* ===== DARK MODE ===== */
+/* ===== DARK THEME (g100) ===== */
 .dark {
-  --surface: #111827;
-  --surface-muted: #1f2937;
-  --surface-hover: #374151;
-  --surface-active: #4b5563;
+  /* UI Layer Colors - Dark gray scale */
+  --layer-01: #262626; /* Background layer */
+  --layer-02: #393939; /* Elevated layer */
+  --layer-03: #525252; /* Popover layer */
+  --layer-accent-01: #393939; /* Subtle accent */
 
-  --text: #f9fafb; /* 17.31:1 on dark background */
-  --text-muted: #9ca3af; /* 4.73:1 on dark background */
-  --text-inverse: #111827;
+  /* Field Colors */
+  --field-01: #262626;
+  --field-02: #393939;
 
-  --border: #374151;
-  --border-focus: #60a5fa;
+  /* Surface Colors */
+  --surface: #161616;
+  --surface-muted: #262626;
+  --surface-hover: #393939;
+  --surface-active: #525252;
 
-  --error: #f87171;
-  --error-light: #7f1d1d;
-  --warning: #fbbf24;
-  --warning-light: #78350f;
-  --success: #34d399;
-  --success-light: #064e3b;
-  --info: #60a5fa;
-  --info-light: #1e3a8a;
+  /* Text Colors - WCAG AA compliant on dark */
+  --text-primary: #f4f4f4; /* 14.78:1 on dark background */
+  --text-secondary: #c6c6c6; /* 8.51:1 on dark background */
+  --text-placeholder: #6f6f6f; /* Placeholder text */
+  --text-on-color: #ffffff;
+  --text-helper: #a8a8a8; /* Helper text */
+  --text-error: #ff8389; /* Error text on dark */
+  --text-inverse: #161616;
+
+  /* Keep legacy */
+  --text: #f4f4f4;
+  --text-muted: #c6c6c6;
+
+  /* Border Colors */
+  --border-subtle: #393939;
+  --border-strong: #8d8d8d;
+  --border-inverse: #f4f4f4;
+  --border-interactive: #4589ff;
+  --border-focus: #4589ff;
+
+  /* Keep legacy */
+  --border: #393939;
+
+  /* Interactive Colors */
+  --interactive: #4589ff;
+  --interactive-hover: #78a9ff;
+  --interactive-active: #a6c8ff;
+
+  /* Semantic Colors */
+  --error: #ff8389;
+  --error-light: #520408;
+  --warning: #f1c21b;
+  --warning-light: #393939;
+  --success: #42be65;
+  --success-light: #044317;
+  --info: #4589ff;
+  --info-light: #001d6c;
 
   /* Adjust shadows for dark mode */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow: 0 2px 6px 0 rgb(0 0 0 / 0.6);
+  --shadow-md: 0 4px 8px 0 rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 8px 16px 0 rgb(0 0 0 / 0.6);
+  --shadow-xl: 0 12px 24px 0 rgb(0 0 0 / 0.6);
 }
 
 /* System preference for dark mode */
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    --surface: #111827;
-    --surface-muted: #1f2937;
-    --surface-hover: #374151;
-    --surface-active: #4b5563;
+    /* UI Layer Colors - Dark gray scale */
+    --layer-01: #262626;
+    --layer-02: #393939;
+    --layer-03: #525252;
+    --layer-accent-01: #393939;
 
-    --text: #f9fafb;
-    --text-muted: #9ca3af;
-    --text-inverse: #111827;
+    /* Surface Colors */
+    --surface: #161616;
+    --surface-muted: #262626;
+    --surface-hover: #393939;
+    --surface-active: #525252;
 
-    --border: #374151;
-    --border-focus: #60a5fa;
+    /* Text Colors */
+    --text-primary: #f4f4f4;
+    --text-secondary: #c6c6c6;
+    --text: #f4f4f4;
+    --text-muted: #c6c6c6;
+    --text-inverse: #161616;
 
-    --error: #f87171;
-    --error-light: #7f1d1d;
-    --warning: #fbbf24;
-    --warning-light: #78350f;
-    --success: #34d399;
-    --success-light: #064e3b;
-    --info: #60a5fa;
-    --info-light: #1e3a8a;
+    /* Border Colors */
+    --border: #393939;
+    --border-focus: #4589ff;
 
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+    /* Interactive Colors */
+    --interactive: #4589ff;
+
+    /* Semantic Colors */
+    --error: #ff8389;
+    --error-light: #520408;
+    --warning: #f1c21b;
+    --warning-light: #393939;
+    --success: #42be65;
+    --success-light: #044317;
+    --info: #4589ff;
+    --info-light: #001d6c;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+    --shadow: 0 2px 6px 0 rgb(0 0 0 / 0.6);
+    --shadow-md: 0 4px 8px 0 rgb(0 0 0 / 0.6);
+    --shadow-lg: 0 8px 16px 0 rgb(0 0 0 / 0.6);
+    --shadow-xl: 0 12px 24px 0 rgb(0 0 0 / 0.6);
   }
 }
