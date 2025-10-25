@@ -22,10 +22,11 @@ export type InputSize = 'sm' | 'md' | 'lg';
  * @remarks
  * Extends native input HTML attributes with custom variants, sizes, and helper text.
  * Supports all standard input props (onChange, value, placeholder, etc.)
+ * Note: The native HTML 'size' attribute is omitted in favor of our custom size prop.
  *
  * @since 0.1.0
  */
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * Visual variant of the input
    * @defaultValue 'default'
