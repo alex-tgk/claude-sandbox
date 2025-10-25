@@ -12,3 +12,6 @@
 export { useId } from './use-id';
 export { useControlledState } from './use-controlled-state';
 export { useFocusTrap } from './use-focus-trap';
+export { usePortal } from './use-portal';
+export { useTooltipPosition, type TooltipPlacement, type TooltipPosition } from './use-tooltip-position';
+export { useClickOutside } from './use-click-outside';

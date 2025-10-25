@@ -96,6 +96,19 @@ const config: Config = {
       transitionTimingFunction: {
         DEFAULT: 'var(--transition-timing)',
       },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'slide-in-from-top': {
+          '0%': { transform: 'translateY(-0.5rem)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'in': 'fade-in 0.2s ease-in-out',
+      },
     },
   },
   plugins: [
