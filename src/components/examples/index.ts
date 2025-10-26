@@ -16,3 +16,4 @@
  */
 
 export { ProjectDashboard } from './ProjectDashboard';
+export { CarbonShowcase } from './CarbonShowcase';
