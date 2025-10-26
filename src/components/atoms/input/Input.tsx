@@ -106,12 +106,21 @@ const getVariantClasses = (variant: InputVariant, hasError: boolean): string => 
  * @returns Tailwind CSS class string
  *
  * @internal
+ * @remarks
+ * Carbon text input field specifications:
+ * - sm: height 32px (2rem) - h-8
+ * - md: height 40px (2.5rem) - h-10 - DEFAULT, matches buttons
+ * - lg: height 48px (3rem) - h-12
+ * - Horizontal padding: 16px (--spacing-05) = px-4
  */
 const getSizeClasses = (size: InputSize): string => {
   const sizes: Record<InputSize, string> = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-base',
-    lg: 'px-4 py-3 text-lg',
+    // h-8 = 32px, Carbon small fields, px-4 = 16px horizontal padding
+    sm: 'h-8 px-4 text-sm',
+    // h-10 = 40px, Carbon default field height (matches buttons!), body-01 14px
+    md: 'h-10 px-4 text-sm',
+    // h-12 = 48px, Carbon large fields
+    lg: 'h-12 px-4 text-base',
   };
 
   return sizes[size];
@@ -231,7 +240,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={id}
-            className="mb-2 block text-sm font-normal text-text-secondary"
+            className="mb-2 block text-xs font-normal text-text-primary"
           >
             {label}
             {isRequired && (
@@ -271,8 +280,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <p
             id={`${id}-helper`}
             className={cn(
-              'mt-1.5 text-sm',
-              hasError ? 'text-error' : 'text-text-muted'
+              'mt-2 text-xs',
+              hasError ? 'text-error' : 'text-text-secondary'
             )}
           >
             {displayedHelperText}

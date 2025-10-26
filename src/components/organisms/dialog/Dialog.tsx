@@ -217,26 +217,26 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(
           aria-labelledby="dialog-title"
           aria-describedby={description ? 'dialog-description' : undefined}
           className={cn(
-            'relative z-10 w-full bg-surface rounded-lg shadow-xl',
-            'transform transition-all',
+            'relative z-10 w-full bg-layer-02 rounded-none shadow-xl',
+            'transform transition-all duration-110',
             getSizeClasses(size),
             className
           )}
           {...props}
         >
           {/* Header */}
-          <div className="flex items-start justify-between border-b border-border px-6 py-4">
+          <div className="flex items-start justify-between border-b border-border-subtle px-6 py-4">
             <div className="flex-1">
               <h2
                 id="dialog-title"
-                className="text-lg font-semibold text-text"
+                className="text-xl font-semibold text-text-primary"
               >
                 {title}
               </h2>
               {description && (
                 <p
                   id="dialog-description"
-                  className="mt-1 text-sm text-text-muted"
+                  className="mt-1 text-sm text-text-secondary"
                 >
                   {description}
                 </p>

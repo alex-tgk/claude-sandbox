@@ -210,6 +210,22 @@ const getTabListClasses = (variant: TabsVariant, orientation: TabsOrientation): 
  *
  * @internal
  */
+/**
+ * Get the CSS classes for a tab
+ *
+ * @param variant - The tabs variant
+ * @param orientation - The tabs orientation
+ * @param isActive - Whether the tab is active
+ * @returns Tailwind CSS class string
+ *
+ * @internal
+ * @remarks
+ * Carbon tab specifications:
+ * - Line tabs: h-12 (48px height) at medium breakpoint
+ * - Active indicator: 4px thick border (border-b-4)
+ * - Text: body-01 (14px / text-sm)
+ * - Padding: horizontal 16px (px-4)
+ */
 const getTabClasses = (
   variant: TabsVariant,
   orientation: TabsOrientation,
@@ -217,10 +233,16 @@ const getTabClasses = (
 ): string => {
   const baseClasses = [
     'inline-flex items-center justify-center gap-2',
-    'px-4 py-2',
+    // Carbon tabs height: 48px (h-12), horizontal padding 16px (px-4)
+    'h-12 px-4',
+    // Carbon body-01: 14px (text-sm), font-medium (600)
     'text-sm font-medium',
-    'transition-interactive',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2',
+    // Carbon 110ms transition
+    'transition-all duration-110',
+    // Sharp corners like Carbon
+    'rounded-none',
+    // Carbon focus: inset focus ring
+    'focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-border-focus',
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
   ];
 
@@ -233,18 +255,18 @@ const getTabClasses = (
     line: {
       active:
         orientation === 'horizontal'
-          ? 'text-brand-600 border-b-2 border-brand-600 -mb-px'
-          : 'text-brand-600 border-l-2 border-brand-600 -ml-px',
-      inactive: 'text-text-muted hover:text-text hover:bg-surface-muted',
+          // Carbon active indicator: 4px thick border (border-b-4)
+          ? 'text-text-primary border-b-4 border-interactive'
+          : 'text-text-primary border-l-4 border-interactive',
+      inactive: 'text-text-secondary hover:text-text-primary hover:bg-layer-hover border-b-4 border-transparent',
     },
     enclosed: {
-      active: 'text-brand-600 bg-surface border border-border border-b-0 rounded-t-md -mb-px',
-      inactive:
-        'text-text-muted hover:text-text hover:bg-surface-muted border border-transparent rounded-t-md',
+      active: 'text-text-primary bg-layer-02 border border-border-subtle border-b-0',
+      inactive: 'text-text-secondary hover:text-text-primary hover:bg-layer-hover border border-transparent',
     },
     pills: {
-      active: 'text-white bg-brand-600 rounded-md',
-      inactive: 'text-text-muted hover:text-text hover:bg-surface-muted rounded-md',
+      active: 'text-text-on-color bg-interactive',
+      inactive: 'text-text-secondary hover:text-text-primary hover:bg-layer-hover',
     },
   };
 
