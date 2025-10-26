@@ -107,12 +107,17 @@ const getVariantClasses = (variant: CardVariant): string => {
  * @returns Tailwind CSS class string
  *
  * @internal
+ * @remarks
+ * Carbon tile padding follows 2x grid (8px increments):
+ * - sm: 16px (--spacing-05) = p-4
+ * - md: 24px (--spacing-06) = p-6
+ * - lg: 32px (--spacing-07) = p-8
  */
 const getSizeClasses = (size: CardSize): string => {
   const sizes: Record<CardSize, string> = {
-    sm: 'p-3',
-    md: 'p-4',
-    lg: 'p-6',
+    sm: 'p-4', // 16px - Carbon condensed
+    md: 'p-6', // 24px - Carbon default
+    lg: 'p-8', // 32px - Carbon spacious
   };
 
   return sizes[size];
@@ -201,10 +206,10 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     ref
   ) => {
     const baseClasses = [
-      // Layout
-      'rounded-lg',
-      // Transitions
-      'transition-interactive',
+      // Layout - Sharp corners like Carbon tiles
+      'rounded-none',
+      // Transitions - Carbon 110ms
+      'transition-all duration-110',
     ];
 
     const hoverClasses = hover
@@ -285,7 +290,8 @@ Card.displayName = 'Card';
  */
 export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ children, className, ...props }, ref) => {
-    const classes = cn('mb-3', className);
+    // Carbon uses spacing-05 (16px) = mb-4 for header spacing
+    const classes = cn('mb-4', className);
 
     return (
       <div ref={ref} className={classes} {...props}>
@@ -336,12 +342,30 @@ CardBody.displayName = 'CardBody';
  * Provides a consistent footer section with appropriate spacing.
  * Typically contains actions, links, or metadata.
  *
+ * Following Carbon tile patterns:
+ * - Buttons should span full width at bottom for call-to-action
+ * - Multiple buttons can use grid layout (e.g., two half-width buttons)
+ * - Links align to bottom left
+ *
  * @example
+ * Single full-width button:
  * ```tsx
  * <Card>
  *   <CardBody>Content</CardBody>
  *   <CardFooter>
- *     <Button>Action</Button>
+ *     <Button isFullWidth>Action</Button>
+ *   </CardFooter>
+ * </Card>
+ * ```
+ *
+ * @example
+ * Two half-width buttons (Carbon pattern):
+ * ```tsx
+ * <Card>
+ *   <CardBody>Content</CardBody>
+ *   <CardFooter className="flex gap-2">
+ *     <Button isFullWidth>Cancel</Button>
+ *     <Button isFullWidth variant="primary">Confirm</Button>
  *   </CardFooter>
  * </Card>
  * ```
@@ -350,7 +374,8 @@ CardBody.displayName = 'CardBody';
  */
 export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
   ({ children, className, ...props }, ref) => {
-    const classes = cn('mt-3', className);
+    // Carbon uses spacing-05 (16px) = mt-4 for footer spacing
+    const classes = cn('mt-4', className);
 
     return (
       <div ref={ref} className={classes} {...props}>

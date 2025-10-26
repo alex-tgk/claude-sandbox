@@ -89,15 +89,29 @@ const getVariantClasses = (variant: ButtonVariant): string => {
  * Get the CSS classes for a button size
  *
  * @param size - The button size
+ * @param variant - The button variant (affects padding)
  * @returns Tailwind CSS class string
  *
  * @internal
+ * @remarks
+ * Carbon button specifications:
+ * - sm: height 32px (2rem)
+ * - md: height 40px (2.5rem) - matches form fields
+ * - lg: height 48px (3rem)
+ * - Padding: 16px left, 64px right (except ghost: 16px/16px)
  */
-const getSizeClasses = (size: ButtonSize): string => {
+const getSizeClasses = (size: ButtonSize, variant: ButtonVariant): string => {
+  // Carbon uses left-aligned text with asymmetric padding (16px left, 64px right)
+  // Exception: ghost buttons use 16px on both sides
+  const isGhost = variant === 'ghost';
+
   const sizes: Record<ButtonSize, string> = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-base',
-    lg: 'px-6 py-3 text-lg',
+    // h-8 = 32px, Carbon spacing: --spacing-05 (16px), --spacing-10 (64px)
+    sm: isGhost ? 'h-8 px-4 text-sm' : 'h-8 pl-4 pr-16 text-sm',
+    // h-10 = 40px (matches Carbon field height)
+    md: isGhost ? 'h-10 px-4 text-sm' : 'h-10 pl-4 pr-16 text-sm',
+    // h-12 = 48px (Carbon large/productive)
+    lg: isGhost ? 'h-12 px-4 text-base' : 'h-12 pl-4 pr-16 text-base',
   };
 
   return sizes[size];
@@ -178,8 +192,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseClasses = [
-      // Layout
-      'inline-flex items-center justify-center gap-2',
+      // Layout - Carbon buttons use left-aligned text, not centered
+      'inline-flex items-center justify-start gap-2',
       // Typography
       'font-medium',
       // Border - Sharp corners like IBM Carbon
@@ -195,7 +209,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const classes = cn(
       baseClasses,
       getVariantClasses(variant),
-      getSizeClasses(size),
+      getSizeClasses(size, variant),
       isFullWidth && 'w-full',
       className
     );
