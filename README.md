@@ -1,22 +1,32 @@
 # Modular UI System
 
-A production-ready, accessible UI component library designed for AI-driven web application generation.
+> **⚠️ Alpha Status**: This library is under active development. While functional, it's not yet production-ready. Expect breaking changes and API refinements.
+
+A Carbon Design System-inspired UI component library optimized for AI-driven web application generation.
 
 ## 🎯 Overview
 
-This modular UI system provides a comprehensive set of composable, strictly-typed React components optimized for AI code generation. Every component follows consistent patterns, includes comprehensive documentation, and meets WCAG 2.2 AA accessibility standards.
+This modular UI system provides a comprehensive set of composable, strictly-typed React components inspired by IBM Carbon Design System. Components follow consistent patterns, include comprehensive documentation, and target WCAG 2.2 AA accessibility compliance.
+
+**What "Carbon-inspired" means:**
+- Visual design follows Carbon specifications (heights, spacing, focus patterns)
+- Uses Carbon color tokens and naming conventions
+- Sharp corners, 110ms transitions, distinctive 4px tab indicators
+- NOT a Carbon implementation (no Carbon dependencies)
+- Custom components styled to match Carbon aesthetics
 
 ## ✨ Features
 
-- **🎨 Tailwind CSS v4**: Zero-runtime styling with CSS variables for theming
-- **♿ Accessibility First**: WCAG 2.2 AA compliant with full keyboard navigation
+- **🎨 IBM Carbon Aesthetic**: Height parity, sharp corners, 110ms transitions, 4px tab indicators
+- **🎨 Tailwind CSS v3**: Utility-first styling with CSS variables for theming
+- **♿ Accessibility Focused**: Targeting WCAG 2.2 AA compliance with keyboard navigation
 - **📘 TypeScript Strict Mode**: Complete type safety with explicit generics
-- **🧩 Headless Architecture**: Separation of logic and presentation
-- **🌗 Dark Mode**: Built-in light/dark/system theme support
+- **🧩 Atomic Design**: Components organized in atoms, molecules, organisms layers
+- **🌗 Dark Mode Ready**: Built-in light/dark theme token support
 - **🔧 SSR-Friendly**: No browser-only APIs in core logic
 - **📦 Tree-Shakable**: Import only what you need
-- **🧪 Fully Tested**: 80%+ test coverage with Vitest
-- **📚 Storybook**: Interactive component documentation
+- **🧪 Well Tested**: 97.2% test coverage (478/492 tests passing)
+- **📚 Storybook**: Interactive component documentation with Carbon showcase
 - **🤖 AI-Optimized**: Predictable patterns for code generation
 
 ## 🚀 Tech Stack
@@ -24,23 +34,56 @@ This modular UI system provides a comprehensive set of composable, strictly-type
 - **Framework**: React 18+
 - **Language**: TypeScript (strict mode)
 - **Bundler**: Vite
-- **Styling**: Tailwind CSS v4
+- **Styling**: Tailwind CSS v3.4.17
 - **Testing**: Vitest + Testing Library
 - **Documentation**: Storybook 8
 
 ## 📦 Installation
 
+> **Note**: Package not yet published to npm. Currently in development.
+
+For local development:
 ```bash
-npm install @modular-ui/system
+git clone <repository-url>
+cd modular-ui-system
+npm install
+npm run build
+```
+
+To use in another project:
+```bash
+npm link /path/to/modular-ui-system
 ```
 
 ## 🎨 Usage
+
+### Setup Tailwind CSS
+
+First, configure Tailwind to use the design tokens:
+
+```js
+// tailwind.config.js
+export default {
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './node_modules/@modular-ui/system/dist/**/*.js'
+  ],
+  presets: [
+    require('@modular-ui/system/tailwind')
+  ]
+}
+```
+
+Import the CSS tokens:
+```tsx
+// In your app entry point
+import '@modular-ui/system/tokens';
+```
 
 ### Basic Example
 
 ```tsx
 import { Button, Input, Dialog } from '@modular-ui/system';
-import '@modular-ui/system/styles';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -124,61 +167,101 @@ All components follow these conventions:
 
 ## 📚 Available Components
 
-### Button
-Flexible, accessible button with multiple variants and sizes.
-- Variants: primary, secondary, outline, ghost, danger
-- Sizes: sm, md, lg
-- Loading state support
-- Icon support (start/end)
+### Atoms (15 components)
+- **Button**: Primary, secondary, outline, ghost, danger variants with Carbon styling
+- **Input**: Text input with Carbon height parity (32/40/48px)
+- **Checkbox**: Carbon-style checkbox with indeterminate state
+- **Radio**: Radio buttons with RadioGroup for managing state
+- **Badge**: Info, success, warning, error, neutral variants
+- **Spinner**: Loading indicator with multiple sizes
+- **Switch**: Toggle switch with Carbon focus pattern
+- **Avatar**: User avatars with fallback initials
 
-### Input
-Text input with label, helper text, and error states.
-- Variants: default, error, success
-- Sizes: sm, md, lg
-- Adornments (start/end icons)
-- Auto-generated IDs for accessibility
+### Molecules (10 components)
+- **Alert**: Dismissible alerts with icons and actions
+- **Breadcrumb**: Navigation breadcrumbs
+- **Select**: Custom select dropdown with keyboard navigation
+- **Tabs**: Carbon-style tabs with 4px indicators and sharp corners
+- **Tooltip**: Positioned tooltips (⚠️ has known rendering issues)
+- **EmptyState**: No-data placeholder states
+- **OpportunityRadar**: Specialized AI opportunity detection component
+- **OnboardingChecklist**: Step-by-step onboarding flows
 
-### Dialog
-Modal dialog with focus trapping.
-- Focus trap implementation
-- Escape key handling
-- Backdrop click support
-- Scroll locking
-- Multiple sizes
+### Organisms (6 components)
+- **Card**: Elevated, outlined, and flat variants
+- **Dialog**: Modal with focus trap and Carbon styling
+- **DataTable**: Sortable, searchable, paginated tables with row selection
+- **CommandPalette**: Keyboard-driven command interface
 
-## 🎨 Theming
+### Examples
+- **CarbonShowcase**: Interactive demo of all Carbon Design nuances
 
-The system uses CSS variables for easy theming:
+### Hooks (5 utilities)
+- `useControlledState`: Controlled/uncontrolled component state
+- `useId`: Accessible unique ID generation
+- `useFocusTrap`: Focus management for modals
+- `usePortal`: Portal rendering utility
+- `useTooltipPosition`: Tooltip positioning (used by Tooltip component)
+
+## 🎨 Carbon Design Tokens
+
+The system uses IBM Carbon-inspired CSS variables:
 
 ```css
-/* Light mode (default) */
-:root {
-  --brand-500: #3b82f6;
-  --surface: #ffffff;
-  --text: #111827;
-}
+/* src/styles/tokens.css */
 
-/* Dark mode */
-.dark {
-  --brand-500: #60a5fa;
-  --surface: #111827;
-  --text: #f9fafb;
-}
+/* IBM Blue Color Scale (11-step) */
+--brand-10: #edf5ff;  /* Lightest blue */
+--brand-20: #d0e2ff;
+--brand-30: #a6c8ff;
+--brand-40: #78a9ff;
+--brand-50: #4589ff;
+--brand-60: #0f62fe;  /* Primary brand */
+--brand-70: #0043ce;
+--brand-80: #002d9c;
+--brand-90: #001d6c;
+--brand-100: #001141; /* Darkest blue */
+
+/* Carbon Layers (backgrounds) */
+--layer-01: #f4f4f4;  /* Base layer */
+--layer-02: #ffffff;  /* Elevated layer */
+--layer-03: #f4f4f4;  /* Menu layer */
+
+/* Interactive Elements */
+--interactive: var(--brand-60);
+--interactive-hover: var(--brand-70);
+--interactive-active: var(--brand-80);
+
+/* Borders */
+--border-subtle: #e0e0e0;
+--border-strong: #8d8d8d;
+--border-focus: var(--brand-60);
+
+/* Text */
+--text-primary: #161616;
+--text-secondary: #525252;
+--text-on-color: #ffffff;
 ```
 
-### Toggling Theme
+### Carbon Design Specifications
 
-```tsx
-// Add 'dark' class to root element
-document.documentElement.classList.add('dark');
+**Height Parity**: Buttons and inputs share exact heights
+- Small: 32px (h-8)
+- Medium: 40px (h-10) - default
+- Large: 48px (h-12)
 
-// Or use system preference
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    /* dark mode variables */
-  }
-}
+**Focus Pattern**: 2px focus border with 1px transparent inset
+```css
+box-shadow: inset 0 0 0 1px transparent, inset 0 0 0 3px var(--border-focus)
 ```
+
+**Sharp Corners**: All components use `rounded-none` (0px border radius)
+
+**Transitions**: 110ms duration for all state changes
+
+**Tab Indicators**: 4px thick borders (vs typical 2px)
+
+**Button Alignment**: Left-aligned text with asymmetric padding (16px left, 64px right)
 
 ## 🧪 Testing
 
@@ -300,15 +383,21 @@ npm run format
 npm run precommit
 ```
 
-## 📝 Quality Gates
+## 📝 Quality Status
 
-Before committing:
+Current state:
 - ✅ ESLint passes with 0 warnings
 - ✅ Prettier formatting applied
-- ✅ TypeScript type checking passes
-- ✅ 80%+ test coverage
-- ✅ All tests pass
+- ✅ TypeScript strict mode passes
+- ✅ 97.2% test coverage (478/492 tests passing)
+- ⚠️ 14 tests failing (13 in Tooltip component requiring refactor)
 - ✅ Storybook builds successfully
+
+**Known Issues:**
+- Tooltip component has circular dependency in render logic
+- Some performance optimizations pending (tracked in backlog)
+- Missing critical form components (TextArea, FileUpload)
+- No DatePicker or navigation components yet
 
 ## 📄 License
 
@@ -326,13 +415,38 @@ Contributions are welcome! Please ensure:
 
 ## 📚 Additional Resources
 
-- [Tailwind CSS v4 Documentation](https://tailwindcss.com)
+- [IBM Carbon Design System](https://carbondesignsystem.com/)
+- [Tailwind CSS v3 Documentation](https://tailwindcss.com)
 - [WCAG 2.2 Guidelines](https://www.w3.org/WAI/WCAG22/quickref/)
 - [React 18 Documentation](https://react.dev)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [Testing Library](https://testing-library.com/react)
 - [Storybook Documentation](https://storybook.js.org)
 
+## 🗺️ Roadmap
+
+### Immediate
+- [ ] Fix Tooltip component circular dependency
+- [ ] Build TextArea component
+- [ ] Build Grid/Stack/Flex layout primitives
+- [ ] Add remaining performance optimizations
+
+### Short-term
+- [ ] DatePicker component
+- [ ] Form infrastructure (useForm, FormField, Form)
+- [ ] Navigation components (Pagination, Dropdown)
+- [ ] Accordion component
+- [ ] TreeView component
+
+### Long-term
+- [ ] React 19 compatibility
+- [ ] Server Components support
+- [ ] Migration guides (Material-UI, Chakra, Ant Design)
+- [ ] Component maturity badges
+- [ ] npm package publication
+
 ---
 
-Built with ❤️ for AI-driven development
+**Status**: Alpha - Carbon-inspired UI system for AI-driven development 🤖
+
+Built with ❤️ following IBM Carbon Design System aesthetics
