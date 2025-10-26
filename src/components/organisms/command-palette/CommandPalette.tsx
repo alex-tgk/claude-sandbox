@@ -258,7 +258,9 @@ export function CommandPalette({
   // Scroll selected item into view
   useEffect(() => {
     const selected = listRef.current?.querySelector('[data-selected="true"]');
-    selected?.scrollIntoView({ block: 'nearest' });
+    if (selected && typeof selected.scrollIntoView === 'function') {
+      selected.scrollIntoView({ block: 'nearest' });
+    }
   }, [selectedIndex]);
 
   // Handle keyboard navigation
@@ -350,7 +352,7 @@ export function CommandPalette({
                 {showCategories && category && (
                   <div className="sticky top-0 bg-layer-02 px-4 py-2">
                     <h3 className="text-xs font-medium uppercase tracking-wider text-text-secondary">
-                      {category}
+                      {category.toUpperCase()}
                     </h3>
                   </div>
                 )}

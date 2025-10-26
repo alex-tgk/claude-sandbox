@@ -29,6 +29,13 @@ export type { RadioProps, RadioGroupProps, RadioSize, RadioOrientation } from '.
 export { Switch } from './atoms/switch/Switch';
 export type { SwitchProps, SwitchVariant, SwitchSize, SwitchLabelPosition } from './atoms/switch/Switch';
 
+export { IconButton } from './atoms/icon-button/IconButton';
+export type {
+  IconButtonProps,
+  IconButtonVariant,
+  IconButtonSize,
+} from './atoms/icon-button/IconButton';
+
 // Display
 export { Badge } from './atoms/badge/Badge';
 export type { BadgeProps, BadgeVariant, BadgeSize, BadgeShape } from './atoms/badge/Badge';
@@ -42,6 +49,23 @@ export type {
   SpinnerSpeed,
 } from './atoms/spinner/Spinner';
 
+export { Tag } from './atoms/tag/Tag';
+export type { TagProps, TagVariant, TagSize } from './atoms/tag/Tag';
+
+export { Avatar } from './atoms/avatar/Avatar';
+export type { AvatarProps, AvatarSize, AvatarStatus } from './atoms/avatar/Avatar';
+
+export { Divider } from './atoms/divider/Divider';
+export type {
+  DividerProps,
+  DividerOrientation,
+  DividerInset,
+  DividerLength,
+} from './atoms/divider/Divider';
+
+export { ProgressBar } from './atoms/progress-bar/ProgressBar';
+export type { ProgressBarProps, ProgressBarTone } from './atoms/progress-bar/ProgressBar';
+
 // ===== MOLECULES =====
 // Feedback
 export { Alert } from './molecules/alert/Alert';
@@ -49,6 +73,12 @@ export type { AlertProps, AlertVariant } from './molecules/alert/Alert';
 
 export { Tooltip } from './molecules/tooltip/Tooltip';
 export type { TooltipProps } from './molecules/tooltip/Tooltip';
+
+export { NotificationToast } from './molecules/notification-toast/NotificationToast';
+export type {
+  NotificationToastProps,
+  NotificationToastVariant,
+} from './molecules/notification-toast/NotificationToast';
 
 // Form Components
 export { Select } from './molecules/select/Select';
@@ -58,6 +88,16 @@ export type {
   SelectVariant,
   SelectOption,
 } from './molecules/select/Select';
+
+export { SearchInput } from './molecules/search-input/SearchInput';
+export type { SearchInputProps } from './molecules/search-input/SearchInput';
+
+export { SegmentedControl } from './molecules/segmented-control/SegmentedControl';
+export type {
+  SegmentedControlProps,
+  SegmentedControlOption,
+  SegmentedControlSize,
+} from './molecules/segmented-control/SegmentedControl';
 
 // Empty data experiences
 export { EmptyState } from './molecules/empty-state/EmptyState';
@@ -74,6 +114,26 @@ export type {
   OnboardingChecklistItem,
   ChecklistAccent,
 } from './molecules/onboarding-checklist/OnboardingChecklist';
+
+// Opportunity intelligence
+export { OpportunityRadar } from './molecules/opportunity-radar/OpportunityRadar';
+export type {
+  OpportunityRadarProps,
+  OpportunityRadarItem,
+  OpportunityImpact,
+  OpportunityTrend,
+} from './molecules/opportunity-radar/OpportunityRadar';
+
+export { StatCard } from './molecules/stat-card/StatCard';
+export type { StatCardProps, StatTrend } from './molecules/stat-card/StatCard';
+
+export { Stepper } from './molecules/stepper/Stepper';
+export type {
+  StepperProps,
+  StepperOrientation,
+  Step,
+  StepStatus,
+} from './molecules/stepper/Stepper';
 
 // ===== ORGANISMS =====
 // Layout

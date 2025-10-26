@@ -20,3 +20,6 @@ export { Tabs, TabList, Tab, TabPanel, type TabsProps } from './tabs/Tabs';
 
 // Data Display
 export { DataTable, type DataTableProps, type DataTableColumn, type SortDirection } from './data-table/DataTable';
+
+// Command Palette
+export { CommandPalette, type CommandPaletteProps, type CommandItem } from './command-palette/CommandPalette';

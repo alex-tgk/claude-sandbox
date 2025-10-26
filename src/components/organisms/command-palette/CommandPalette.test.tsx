@@ -1,10 +1,11 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { CommandPalette, type CommandItem } from './CommandPalette';
 
 describe('CommandPalette', () => {
-  const mockOnClose = jest.fn();
-  const mockOnSelect = jest.fn();
+  const mockOnClose = vi.fn();
+  const mockOnSelect = vi.fn();
 
   const sampleItems: CommandItem[] = [
     {
@@ -38,7 +39,7 @@ describe('CommandPalette', () => {
   ];
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('Rendering', () => {
@@ -229,7 +230,7 @@ describe('CommandPalette', () => {
 
     it('should use custom search function when provided', async () => {
       const user = userEvent.setup();
-      const customSearchFn = jest.fn((item: CommandItem, query: string) =>
+      const customSearchFn = vi.fn((item: CommandItem, query: string) =>
         item.id === query
       );
 
@@ -315,7 +316,7 @@ describe('CommandPalette', () => {
     });
 
     it('should select item on Enter key', () => {
-      const onSelectMock = jest.fn();
+      const onSelectMock = vi.fn();
       const itemWithSelect = [{ ...sampleItems[0], onSelect: onSelectMock }];
 
       render(
@@ -338,7 +339,7 @@ describe('CommandPalette', () => {
 
   describe('Selection', () => {
     it('should call onSelect when item is clicked', () => {
-      const onSelectMock = jest.fn();
+      const onSelectMock = vi.fn();
       const itemWithSelect = [{ ...sampleItems[0], onSelect: onSelectMock }];
 
       render(
