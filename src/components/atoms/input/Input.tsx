@@ -84,16 +84,23 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
  * @returns Tailwind CSS class string
  *
  * @internal
+ * @remarks
+ * Carbon focus state pattern (same as buttons):
+ * - 2px focus border with 1px transparent inset space
+ * - Uses box-shadow for the inset border effect
  */
 const getVariantClasses = (variant: InputVariant, hasError: boolean): string => {
+  // Carbon focus pattern: 2px border with 1px inset transparent space
+  const carbonFocus = 'focus:shadow-[inset_0_0_0_1px_transparent,inset_0_0_0_3px_var(--border-focus)]';
+
   if (hasError || variant === 'error') {
-    return 'border-error focus:border-error focus:outline focus:outline-2 focus:outline-offset-[-2px] focus:outline-border-focus';
+    return `border-error ${carbonFocus}`;
   }
 
   const variants: Record<InputVariant, string> = {
-    default: 'border-border-subtle focus:border-interactive focus:outline focus:outline-2 focus:outline-offset-[-2px] focus:outline-border-focus',
-    error: 'border-error focus:border-error focus:outline focus:outline-2 focus:outline-offset-[-2px] focus:outline-border-focus',
-    success: 'border-success focus:border-success focus:outline focus:outline-2 focus:outline-offset-[-2px] focus:outline-border-focus',
+    default: `border-border-subtle ${carbonFocus}`,
+    error: `border-error ${carbonFocus}`,
+    success: `border-success ${carbonFocus}`,
   };
 
   return variants[variant];

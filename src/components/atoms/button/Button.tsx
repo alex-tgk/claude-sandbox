@@ -67,19 +67,23 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * @returns Tailwind CSS class string
  *
  * @internal
+ * @remarks
+ * Carbon focus state pattern:
+ * - 2px focus border with 1px transparent inset space
+ * - Uses box-shadow for the inset border effect
+ * - Focus color: Blue 60 (light), White (dark)
  */
 const getVariantClasses = (variant: ButtonVariant): string => {
+  // Carbon focus pattern: 2px border with 1px inset transparent space
+  // Implemented with box-shadow: inset 0 0 0 1px transparent, inset 0 0 0 2px focus-color
+  const carbonFocus = 'focus-visible:shadow-[inset_0_0_0_1px_transparent,inset_0_0_0_3px_var(--border-focus)]';
+
   const variants: Record<ButtonVariant, string> = {
-    primary:
-      'bg-interactive text-text-on-color hover:bg-interactive-hover active:bg-interactive-active focus-visible:ring-interactive border border-transparent',
-    secondary:
-      'bg-surface-muted text-text-primary hover:bg-surface-hover active:bg-surface-active focus-visible:ring-border-interactive border border-transparent',
-    outline:
-      'border border-border-strong bg-transparent text-text-primary hover:bg-surface-hover active:bg-surface-active focus-visible:ring-border-interactive',
-    ghost:
-      'bg-transparent text-text-primary hover:bg-surface-hover active:bg-surface-active focus-visible:ring-border-interactive border border-transparent',
-    danger:
-      'bg-error text-text-on-color hover:opacity-90 active:opacity-80 focus-visible:ring-error border border-transparent',
+    primary: `bg-interactive text-text-on-color hover:bg-interactive-hover active:bg-interactive-active border border-transparent ${carbonFocus}`,
+    secondary: `bg-surface-muted text-text-primary hover:bg-surface-hover active:bg-surface-active border border-transparent ${carbonFocus}`,
+    outline: `border border-border-strong bg-transparent text-text-primary hover:bg-surface-hover active:bg-surface-active ${carbonFocus}`,
+    ghost: `bg-transparent text-text-primary hover:bg-surface-hover active:bg-surface-active border border-transparent ${carbonFocus}`,
+    danger: `bg-error text-text-on-color hover:opacity-90 active:opacity-80 border border-transparent ${carbonFocus}`,
   };
 
   return variants[variant];
@@ -200,8 +204,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       'rounded-none',
       // Transitions - Carbon uses 110ms
       'transition-all duration-110',
-      // Focus - Inset focus ring like Carbon
-      'focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-border-focus',
+      // Focus - Carbon inset focus with box-shadow (handled in variant classes)
+      'focus-visible:outline-none',
       // Disabled state
       'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
     ];

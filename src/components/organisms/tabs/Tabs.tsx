@@ -231,6 +231,9 @@ const getTabClasses = (
   orientation: TabsOrientation,
   isActive: boolean
 ): string => {
+  // Carbon focus pattern: 2px border with 1px inset transparent space
+  const carbonFocus = 'focus-visible:shadow-[inset_0_0_0_1px_transparent,inset_0_0_0_3px_var(--border-focus)]';
+
   const baseClasses = [
     'inline-flex items-center justify-center gap-2',
     // Carbon tabs height: 48px (h-12), horizontal padding 16px (px-4)
@@ -241,8 +244,8 @@ const getTabClasses = (
     'transition-all duration-110',
     // Sharp corners like Carbon
     'rounded-none',
-    // Carbon focus: inset focus ring
-    'focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-border-focus',
+    // Carbon focus: inset focus with box-shadow
+    `focus-visible:outline-none ${carbonFocus}`,
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
   ];
 
