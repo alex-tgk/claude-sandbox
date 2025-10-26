@@ -121,7 +121,13 @@ export const ContentLayout = forwardRef<HTMLDivElement, ContentLayoutProps>(
           )}
 
           {/* Main Content Grid */}
-          <div className={cn('grid gap-8', aside && 'lg:grid-cols-[1fr_16rem]')}>
+          <div
+            className={cn(
+              'grid gap-8',
+              aside && asidePosition === 'right' && 'lg:grid-cols-[1fr_16rem]',
+              aside && asidePosition === 'left' && 'lg:grid-cols-[16rem_1fr]'
+            )}
+          >
             {/* Sidebar Left */}
             {aside && asidePosition === 'left' && (
               <aside className="hidden lg:block">
@@ -130,12 +136,7 @@ export const ContentLayout = forwardRef<HTMLDivElement, ContentLayoutProps>(
             )}
 
             {/* Main Content */}
-            <main
-              className={cn(
-                'min-w-0',
-                aside && asidePosition === 'left' && 'lg:col-start-2'
-              )}
-            >
+            <main className="min-w-0">
               {children}
             </main>
 
