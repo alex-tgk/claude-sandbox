@@ -1,27 +1,67 @@
 /**
- * Component exports for the modular UI system
+ * Modular UI System - Component Exports
+ * Organized using Atomic Design Principles
  *
  * @remarks
- * All components are exported from this central location for easy importing.
- * Each component includes types, variants, and sizes where applicable.
+ * - Atoms: Basic building blocks (buttons, inputs, etc.)
+ * - Molecules: Simple combinations (alerts, tooltips, etc.)
+ * - Organisms: Complex sections (cards, dialogs, tabs)
+ * - Templates: Page-level layouts
  *
  * @since 0.1.0
+ * @version 0.2.0 - Reorganized with atomic design
  */
 
-// Button
-export { Button } from './button/Button';
-export type { ButtonProps, ButtonVariant, ButtonSize } from './button/Button';
+// ===== ATOMS =====
+// Form Controls
+export { Button } from './atoms/button/Button';
+export type { ButtonProps, ButtonVariant, ButtonSize } from './atoms/button/Button';
 
-// Input
-export { Input } from './input/Input';
-export type { InputProps, InputVariant, InputSize } from './input/Input';
+export { Input } from './atoms/input/Input';
+export type { InputProps, InputVariant, InputSize } from './atoms/input/Input';
 
-// Dialog
-export { Dialog } from './dialog/Dialog';
-export type { DialogProps, DialogSize } from './dialog/Dialog';
+export { Checkbox } from './atoms/checkbox';
+export type { CheckboxProps, CheckboxVariant, CheckboxSize } from './atoms/checkbox';
 
-// Card
-export { Card, CardHeader, CardBody, CardFooter } from './card/Card';
+export { Radio, RadioGroup } from './atoms/radio';
+export type { RadioProps, RadioGroupProps, RadioSize, RadioOrientation } from './atoms/radio';
+
+export { Switch } from './atoms/switch/Switch';
+export type { SwitchProps, SwitchVariant, SwitchSize, SwitchLabelPosition } from './atoms/switch/Switch';
+
+// Display
+export { Badge } from './atoms/badge/Badge';
+export type { BadgeProps, BadgeVariant, BadgeSize, BadgeShape } from './atoms/badge/Badge';
+
+export { Spinner } from './atoms/spinner/Spinner';
+export type {
+  SpinnerProps,
+  SpinnerVariant,
+  SpinnerColor,
+  SpinnerSize,
+  SpinnerSpeed,
+} from './atoms/spinner/Spinner';
+
+// ===== MOLECULES =====
+// Feedback
+export { Alert } from './molecules/alert/Alert';
+export type { AlertProps, AlertVariant } from './molecules/alert/Alert';
+
+export { Tooltip } from './molecules/tooltip/Tooltip';
+export type { TooltipProps } from './molecules/tooltip/Tooltip';
+
+// Form Components
+export { Select } from './molecules/select/Select';
+export type {
+  SelectProps,
+  SelectSize,
+  SelectVariant,
+  SelectOption,
+} from './molecules/select/Select';
+
+// ===== ORGANISMS =====
+// Layout
+export { Card, CardHeader, CardBody, CardFooter } from './organisms/card/Card';
 export type {
   CardProps,
   CardVariant,
@@ -29,26 +69,14 @@ export type {
   CardHeaderProps,
   CardBodyProps,
   CardFooterProps,
-} from './card/Card';
+} from './organisms/card/Card';
 
-// Badge
-export { Badge } from './badge/Badge';
-export type { BadgeProps, BadgeVariant, BadgeSize, BadgeShape } from './badge/Badge';
+// Overlays
+export { Dialog } from './organisms/dialog/Dialog';
+export type { DialogProps, DialogSize } from './organisms/dialog/Dialog';
 
-// Alert
-export { Alert } from './alert/Alert';
-export type { AlertProps, AlertVariant } from './alert/Alert';
-
-// Tooltip
-export { Tooltip } from './tooltip/Tooltip';
-export type { TooltipProps } from './tooltip/Tooltip';
-
-// Radio
-export { Radio, RadioGroup } from './radio';
-export type { RadioProps, RadioGroupProps, RadioSize, RadioOrientation } from './radio';
-
-// Tabs
-export { Tabs, TabList, Tab, TabPanel } from './tabs/Tabs';
+// Navigation
+export { Tabs, TabList, Tab, TabPanel } from './organisms/tabs/Tabs';
 export type {
   TabsProps,
   TabListProps,
@@ -56,31 +84,24 @@ export type {
   TabPanelProps,
   TabsVariant,
   TabsOrientation,
-} from './tabs/Tabs';
+} from './organisms/tabs/Tabs';
 
-// Checkbox
-export { Checkbox } from './checkbox';
-export type { CheckboxProps, CheckboxVariant, CheckboxSize } from './checkbox';
+// ===== TEMPLATES =====
+export { DashboardLayout } from './templates/DashboardLayout';
+export type { DashboardLayoutProps } from './templates/DashboardLayout';
 
-// Select
-export { Select } from './select/Select';
-export type {
-  SelectProps,
-  SelectSize,
-  SelectVariant,
-  SelectOption,
-} from './select/Select';
+export { AuthLayout } from './templates/AuthLayout';
+export type { AuthLayoutProps } from './templates/AuthLayout';
 
-// Spinner
-export { Spinner } from './spinner/Spinner';
-export type {
-  SpinnerProps,
-  SpinnerVariant,
-  SpinnerColor,
-  SpinnerSize,
-  SpinnerSpeed,
-} from './spinner/Spinner';
+export { ContentLayout } from './templates/ContentLayout';
+export type { ContentLayoutProps } from './templates/ContentLayout';
 
-// Switch
-export { Switch } from "./switch/Switch";
-export type { SwitchProps, SwitchVariant, SwitchSize, SwitchLabelPosition } from "./switch/Switch";
+export { SplitLayout } from './templates/SplitLayout';
+export type { SplitLayoutProps } from './templates/SplitLayout';
+
+// ===== ATOMIC LAYER EXPORTS =====
+// Re-export all atoms, molecules, organisms, templates for convenience
+export * from './atoms';
+export * from './molecules';
+export * from './organisms';
+export * from './templates';
