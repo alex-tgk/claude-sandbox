@@ -20,6 +20,9 @@ export type { ButtonProps, ButtonVariant, ButtonSize } from './atoms/button/Butt
 export { Input } from './atoms/input/Input';
 export type { InputProps, InputVariant, InputSize } from './atoms/input/Input';
 
+export { TextArea } from './text-area';
+export type { TextAreaProps, TextAreaVariant, TextAreaSize } from './text-area';
+
 export { Checkbox } from './atoms/checkbox';
 export type { CheckboxProps, CheckboxVariant, CheckboxSize } from './atoms/checkbox';
 
@@ -65,6 +68,16 @@ export type {
 
 export { ProgressBar } from './atoms/progress-bar/ProgressBar';
 export type { ProgressBarProps, ProgressBarTone } from './atoms/progress-bar/ProgressBar';
+
+// Layout Primitives
+export { Grid } from './atoms/grid';
+export type { GridProps, GridGap, GridCols } from './atoms/grid';
+
+export { Stack } from './atoms/stack';
+export type { StackProps, StackDirection, StackGap, StackAlign, StackJustify } from './atoms/stack';
+
+export { Flex } from './atoms/flex';
+export type { FlexProps, FlexDirection, FlexGap, FlexAlign, FlexJustify, FlexWrap } from './atoms/flex';
 
 // ===== MOLECULES =====
 // Feedback

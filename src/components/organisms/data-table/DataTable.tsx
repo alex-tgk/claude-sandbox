@@ -535,9 +535,7 @@ function DataTableComponent<T = any>({
   );
 }
 
-// Export memoized version for performance
-export const DataTable = memo(DataTableComponent) as <T = any>(
-  props: DataTableProps<T>
-) => JSX.Element;
+DataTableComponent.displayName = 'DataTable';
 
-DataTable.displayName = 'DataTable';
+// Export memoized version for performance
+export const DataTable = memo(DataTableComponent) as typeof DataTableComponent;
