@@ -20,7 +20,7 @@ import { useState } from 'react';
  * - Color with sufficient contrast (WCAG AA)
  */
 const meta = {
-  title: 'Components/Badge',
+  title: 'Atoms/Badge',
   component: Badge,
   tags: ['autodocs'],
   argTypes: {

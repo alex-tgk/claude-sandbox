@@ -18,7 +18,7 @@ import { Button } from './Button';
  * - Loading state communicated via ARIA
  */
 const meta = {
-  title: 'Components/Button',
+  title: 'Atoms/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {

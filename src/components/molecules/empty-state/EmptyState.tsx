@@ -92,8 +92,8 @@ const toneEyebrow: Record<EmptyStateTone, string> = {
 const DefaultMedia = () => (
   <svg
     viewBox="0 0 64 64"
-    role="img"
     aria-hidden="true"
+    focusable="false"
     className="h-12 w-12"
   >
     <path

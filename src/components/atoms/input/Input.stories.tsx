@@ -18,7 +18,7 @@ import { Input } from './Input';
  * - Keyboard navigable and screen reader friendly
  */
 const meta = {
-  title: 'Components/Input',
+  title: 'Atoms/Input',
   component: Input,
   tags: ['autodocs'],
   argTypes: {

@@ -30,7 +30,7 @@ import { Spinner } from './Spinner';
  * - WCAG 2.2 AA compliant
  */
 const meta = {
-  title: 'Components/Spinner',
+  title: 'Atoms/Spinner',
   component: Spinner,
   tags: ['autodocs'],
   argTypes: {

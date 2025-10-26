@@ -34,7 +34,7 @@ import { Button } from '../button/Button';
  * - Works with any focusable element
  */
 const meta = {
-  title: 'Components/Tooltip',
+  title: 'Molecules/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   argTypes: {

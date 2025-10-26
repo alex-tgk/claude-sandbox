@@ -20,7 +20,7 @@ import { Tabs, TabList, Tab, TabPanel } from './Tabs';
  * - Supports both horizontal and vertical orientations
  */
 const meta = {
-  title: 'Components/Tabs',
+  title: 'Organisms/Tabs',
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {

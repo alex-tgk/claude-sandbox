@@ -31,7 +31,7 @@ import { Radio, RadioGroup } from './Radio';
  * - Screen reader friendly
  */
 const meta = {
-  title: 'Components/Radio',
+  title: 'Atoms/Radio',
   component: RadioGroup,
   tags: ['autodocs'],
   argTypes: {

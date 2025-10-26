@@ -3,7 +3,7 @@ import { EmptyState } from './EmptyState';
 import { Button } from '../../atoms/button/Button';
 
 const meta = {
-  title: 'Components/EmptyState',
+  title: 'Molecules/EmptyState',
   component: EmptyState,
   tags: ['autodocs'],
   parameters: {
@@ -91,7 +91,7 @@ export const SplitLayout: Story = {
 export const PositiveWithChecklist: Story = {
   args: {
     tone: 'positive',
-    title: 'You’re all caught up',
+    title: "You're all caught up",
     description: 'There are no pending reviews. Keep the momentum going with proactive outreach.',
     children: (
       <ul className="list-inside list-disc text-left">
@@ -114,7 +114,7 @@ export const DestructiveRecovery: Story = {
   args: {
     tone: 'destructive',
     eyebrow: 'Something broke',
-    title: 'We couldn’t load your automations',
+    title: "We couldn't load your automations",
     description: 'The workflow endpoint is unreachable. Check your network settings or try again later.',
     primaryAction: (
       <Button variant="danger">

@@ -20,7 +20,7 @@ import { Checkbox } from './Checkbox';
  * - WCAG 2.2 AA compliant
  */
 const meta = {
-  title: 'Components/Checkbox',
+  title: 'Atoms/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {

@@ -37,7 +37,7 @@ import { Switch } from './Switch';
  * - Visible focus indicators
  */
 const meta = {
-  title: 'Components/Switch',
+  title: 'Atoms/Switch',
   component: Switch,
   tags: ['autodocs'],
   argTypes: {

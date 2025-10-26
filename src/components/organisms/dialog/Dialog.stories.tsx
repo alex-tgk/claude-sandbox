@@ -21,7 +21,7 @@ import { Button } from '../button/Button';
  * - Body scroll locked when dialog is open
  */
 const meta = {
-  title: 'Components/Dialog',
+  title: 'Organisms/Dialog',
   component: Dialog,
   tags: ['autodocs'],
   argTypes: {

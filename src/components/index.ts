@@ -67,6 +67,14 @@ export type {
   EmptyStateLayout,
 } from './molecules/empty-state/EmptyState';
 
+// Onboarding
+export { OnboardingChecklist } from './molecules/onboarding-checklist/OnboardingChecklist';
+export type {
+  OnboardingChecklistProps,
+  OnboardingChecklistItem,
+  ChecklistAccent,
+} from './molecules/onboarding-checklist/OnboardingChecklist';
+
 // ===== ORGANISMS =====
 // Layout
 export { Card, CardHeader, CardBody, CardFooter } from './organisms/card/Card';
@@ -93,6 +101,14 @@ export type {
   TabsVariant,
   TabsOrientation,
 } from './organisms/tabs/Tabs';
+
+// Data Display
+export { DataTable } from './organisms/data-table/DataTable';
+export type {
+  DataTableProps,
+  DataTableColumn,
+  SortDirection,
+} from './organisms/data-table/DataTable';
 
 // ===== TEMPLATES =====
 export { DashboardLayout } from './templates/DashboardLayout';

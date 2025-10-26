@@ -29,7 +29,7 @@ import { useState } from 'react';
  * - WCAG 2.2 AA compliant color contrast
  */
 const meta = {
-  title: 'Components/Alert',
+  title: 'Molecules/Alert',
   component: Alert,
   tags: ['autodocs'],
   argTypes: {

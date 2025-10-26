@@ -23,3 +23,11 @@ export {
   type EmptyStateTone,
   type EmptyStateLayout,
 } from './empty-state/EmptyState';
+
+// Activation flows
+export {
+  OnboardingChecklist,
+  type OnboardingChecklistProps,
+  type OnboardingChecklistItem,
+  type ChecklistAccent,
+} from './onboarding-checklist/OnboardingChecklist';

@@ -26,7 +26,7 @@ import { Card, CardHeader, CardBody, CardFooter } from './Card';
  * - Focus indicators for keyboard navigation
  */
 const meta = {
-  title: 'Components/Card',
+  title: 'Organisms/Card',
   component: Card,
   tags: ['autodocs'],
   argTypes: {

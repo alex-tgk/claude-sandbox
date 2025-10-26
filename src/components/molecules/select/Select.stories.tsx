@@ -50,7 +50,7 @@ const fruitOptions: SelectOption[] = [
  * - Focus management
  */
 const meta = {
-  title: 'Components/Select',
+  title: 'Molecules/Select',
   component: Select,
   tags: ['autodocs'],
   argTypes: {
