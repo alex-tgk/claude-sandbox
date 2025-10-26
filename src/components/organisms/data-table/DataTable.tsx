@@ -1,4 +1,4 @@
-import { useState, useMemo, type ReactNode } from 'react';
+import { useState, useMemo, memo, type ReactNode } from 'react';
 import { cn } from '../../../utils/cn';
 import { Button } from '../../atoms/button/Button';
 import { Input } from '../../atoms/input/Input';
@@ -198,7 +198,7 @@ export interface DataTableProps<T = any> {
  *
  * @since 0.2.0
  */
-export function DataTable<T = any>({
+function DataTableComponent<T = any>({
   data,
   columns,
   keyField = 'id',
@@ -534,5 +534,10 @@ export function DataTable<T = any>({
     </div>
   );
 }
+
+// Export memoized version for performance
+export const DataTable = memo(DataTableComponent) as <T = any>(
+  props: DataTableProps<T>
+) => JSX.Element;
 
 DataTable.displayName = 'DataTable';

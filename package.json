@@ -11,10 +11,13 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles": "./dist/styles/tailwind.css"
+    "./tailwind": "./tailwind.config.ts",
+    "./tokens": "./src/styles/tokens.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/styles/tokens.css",
+    "tailwind.config.ts"
   ],
   "scripts": {
     "dev": "vite --config vite.config.ts --mode development",

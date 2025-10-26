@@ -33,7 +33,8 @@ describe('cn', () => {
     expect(cn()).toBe('');
   });
 
-  it('deduplicates class names', () => {
-    expect(cn('foo', 'foo', 'bar')).toBe('foo bar');
+  it('preserves duplicate class names (clsx behavior)', () => {
+    // clsx does not deduplicate by default
+    expect(cn('foo', 'foo', 'bar')).toBe('foo foo bar');
   });
 });

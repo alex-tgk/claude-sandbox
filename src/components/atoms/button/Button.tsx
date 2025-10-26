@@ -178,6 +178,13 @@ const getSizeClasses = (size: ButtonSize, variant: ButtonVariant): string => {
  *
  * @since 0.1.0
  */
+/**
+ * Base classes for all buttons - extracted as constant for performance
+ * @internal
+ */
+const BASE_CLASSES =
+  'inline-flex items-center justify-start gap-2 font-medium rounded-none transition-all duration-110 focus-visible:outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -195,23 +202,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const baseClasses = [
-      // Layout - Carbon buttons use left-aligned text, not centered
-      'inline-flex items-center justify-start gap-2',
-      // Typography
-      'font-medium',
-      // Border - Sharp corners like IBM Carbon
-      'rounded-none',
-      // Transitions - Carbon uses 110ms
-      'transition-all duration-110',
-      // Focus - Carbon inset focus with box-shadow (handled in variant classes)
-      'focus-visible:outline-none',
-      // Disabled state
-      'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
-    ];
-
     const classes = cn(
-      baseClasses,
+      BASE_CLASSES,
       getVariantClasses(variant),
       getSizeClasses(size, variant),
       isFullWidth && 'w-full',
@@ -224,6 +216,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         type={type}
         // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
         disabled={disabled || isLoading}
+        aria-busy={isLoading}
         className={classes}
         {...props}
       >

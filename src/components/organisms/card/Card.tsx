@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLAttributes } from 'react';
+import { forwardRef, useCallback, type HTMLAttributes } from 'react';
 import { cn } from '../../../utils/cn';
 
 /**
@@ -237,18 +237,18 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       className
     );
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
       if (clickable && !disabled && onClick) {
         onClick();
       }
-    };
+    }, [clickable, disabled, onClick]);
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
       if (clickable && !disabled && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
         onClick?.();
       }
-    };
+    }, [clickable, disabled, onClick]);
 
     return (
       <div

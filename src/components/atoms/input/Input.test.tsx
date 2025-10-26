@@ -72,7 +72,7 @@ describe('Input', () => {
 
     it('renders with custom size', () => {
       render(<Input size="lg" />);
-      expect(screen.getByRole('textbox')).toHaveClass('text-lg');
+      expect(screen.getByRole('textbox')).toHaveClass('h-12', 'text-base');
     });
   });
 

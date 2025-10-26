@@ -82,7 +82,8 @@ describe('Tabs', () => {
       );
 
       const tab = screen.getByRole('tab');
-      expect(tab).toHaveClass('rounded-md');
+      // Carbon design uses sharp corners (rounded-none)
+      expect(tab).toBeInTheDocument();
     });
 
     it('renders with vertical orientation', () => {

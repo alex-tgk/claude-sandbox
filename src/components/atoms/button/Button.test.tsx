@@ -13,8 +13,9 @@ describe('Button', () => {
     it('renders with default variant and size', () => {
       render(<Button>Default</Button>);
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('bg-brand-600'); // primary variant
-      expect(button).toHaveClass('px-4'); // md size
+      expect(button).toHaveClass('bg-interactive'); // primary variant
+      expect(button).toHaveClass('h-10'); // md size (40px)
+      expect(button).toHaveClass('pl-4'); // Carbon asymmetric padding
     });
 
     it('renders with custom variant', () => {
@@ -26,7 +27,9 @@ describe('Button', () => {
     it('renders with custom size', () => {
       render(<Button size="lg">Large</Button>);
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('px-6', 'py-3', 'text-lg');
+      expect(button).toHaveClass('h-12'); // lg = 48px
+      expect(button).toHaveClass('pl-4'); // Carbon padding
+      expect(button).toHaveClass('text-base'); // lg uses text-base
     });
 
     it('renders full width when specified', () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Dialog } from './Dialog';
 
@@ -284,20 +284,28 @@ describe('Dialog', () => {
       const button2 = screen.getByRole('button', { name: 'Button 2' });
       const closeButton = screen.getByLabelText('Close dialog');
 
-      // Focus should start on first focusable element
-      expect(button1).toHaveFocus();
+      // Focus should start on first focusable element (async)
+      await waitFor(() => {
+        expect(button1).toHaveFocus();
+      });
 
       // Tab to next element
       await user.tab();
-      expect(button2).toHaveFocus();
+      await waitFor(() => {
+        expect(button2).toHaveFocus();
+      });
 
       // Tab to close button
       await user.tab();
-      expect(closeButton).toHaveFocus();
+      await waitFor(() => {
+        expect(closeButton).toHaveFocus();
+      });
 
       // Tab should cycle back to first element
       await user.tab();
-      expect(button1).toHaveFocus();
+      await waitFor(() => {
+        expect(button1).toHaveFocus();
+      });
     });
   });
 });
