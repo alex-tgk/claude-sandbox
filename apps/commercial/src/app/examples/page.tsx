@@ -48,17 +48,17 @@ export default function ExamplesPage() {
         <div className="container-custom">
           <Grid cols={2} gap="8" className="grid-cols-1 lg:grid-cols-2">
             {examples.map((example, index) => (
-              <Card key={index} variant="elevated" hover className="bg-white">
-                <CardHeader className="border-b border-neutral-200 bg-neutral-50">
+              <Card key={index} variant="elevated" hover>
+                <CardHeader>
                   <div className="flex items-center justify-between">
-                    <Badge variant="secondary" className="bg-neutral-100 text-neutral-700 border-neutral-300">
+                    <Badge variant="secondary">
                       {example.category}
                     </Badge>
                     <ComplexityBadge level={example.complexity} />
                   </div>
                 </CardHeader>
 
-                <CardBody className="bg-white">
+                <CardBody>
                   <div className="space-y-6">
                     <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 leading-snug">
                       {example.title}
@@ -68,7 +68,7 @@ export default function ExamplesPage() {
                     </p>
 
                     {/* Components Used */}
-                    <div className="space-y-3 pt-2 border-t border-neutral-200">
+                    <div className="space-y-3 pt-4 border-t border-neutral-200">
                       <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wide">
                         Components Used
                       </div>
@@ -80,7 +80,7 @@ export default function ExamplesPage() {
                     </div>
 
                     {/* Features */}
-                    <div className="space-y-3 pt-2 border-t border-neutral-200">
+                    <div className="space-y-3 pt-4 border-t border-neutral-200">
                       <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wide">
                         Key Features
                       </div>
@@ -96,7 +96,7 @@ export default function ExamplesPage() {
                   </div>
                 </CardBody>
 
-                <CardFooter className="bg-neutral-50 border-t border-neutral-200">
+                <CardFooter>
                   <div className="flex gap-3 w-full">
                     <Link href={`/examples/${example.slug}`} className="flex-1">
                       <Button variant="primary" isFullWidth>View Demo</Button>
@@ -157,7 +157,7 @@ function ComplexityBadge({ level }: { level: ComplexityLevel }) {
   };
 
   return (
-    <Badge variant="secondary" size="sm" className="bg-neutral-100 text-neutral-700 border-neutral-300">
+    <Badge variant="secondary" size="sm">
       {labels[level]}
     </Badge>
   );
