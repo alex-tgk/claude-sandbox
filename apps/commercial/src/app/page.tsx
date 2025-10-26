@@ -31,21 +31,23 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-b from-white to-neutral-50">
+      <section className="pt-20 pb-24 md:pt-32 md:pb-40 bg-gradient-to-b from-white to-neutral-50">
         <div className="container-custom">
-          <Stack direction="column" gap="xl" align="center" className="max-w-4xl mx-auto text-center">
-            <Badge variant="info" size="lg">⚠️ Alpha: Active Development</Badge>
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="animate-slide-up">
+              <Badge variant="info" size="lg">⚠️ Alpha: Active Development</Badge>
+            </div>
 
-            <h1 className="animate-slide-up text-balance">
-              Carbon-Inspired React Components
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-tight animate-slide-up animation-delay-100">
+              Built for<br />
+              <span className="inline-block mt-2">Modern Development</span>
             </h1>
 
-            <p className="mt-6 text-lg md:text-xl text-neutral-600 text-balance animate-slide-up animation-delay-200">
-              Build modern applications faster with our Carbon Design System-inspired,
-              accessible, and fully-typed component library. Currently in alpha with 35+ components.
+            <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed animate-slide-up animation-delay-200">
+              Everything you need to build enterprise applications with confidence.
             </p>
 
-            <Stack direction="row" gap="md" className="mt-10 animate-slide-up animation-delay-400">
+            <div className="flex flex-wrap justify-center gap-3 pt-4 animate-slide-up animation-delay-300">
               <Link href="/docs">
                 <Button variant="primary" size="lg">
                   Get Started →
@@ -61,22 +63,22 @@ export default function HomePage() {
                   See Examples
                 </Button>
               </Link>
-            </Stack>
+            </div>
 
-            <Stack direction="row" gap="sm" className="mt-6">
+            <div className="flex flex-wrap justify-center gap-2 pt-2">
               <Tag variant="success">35 Components</Tag>
               <Tag variant="info">TypeScript Strict</Tag>
               <Tag variant="secondary">WCAG 2.2 AA Target</Tag>
               <Tag variant="primary">MIT License</Tag>
-            </Stack>
-          </Stack>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Stats Section with StatCards */}
-      <section className="py-12 border-y border-neutral-200 bg-white">
+      <section className="py-16 md:py-20 border-y border-neutral-200 bg-white">
         <div className="container-custom">
-          <Grid cols={4} gap="lg" className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <Grid cols={4} gap="8" className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             <StatCard
               label="Total Components"
               value="35"
@@ -106,38 +108,46 @@ export default function HomePage() {
       </section>
 
       {/* Alert Banner */}
-      <section className="container-custom pt-8">
-        <Alert variant="warning">
-          ⚠️ <strong>Alpha Status:</strong> v0.2.0 - Under active development. API may change. Includes 35 components, 5 themes, and 3 example applications.
-          <Link href="/examples" className="ml-2 underline font-medium">
-            View examples →
-          </Link>
-        </Alert>
+      <section className="py-12 md:py-16">
+        <div className="container-custom">
+          <Alert variant="warning">
+            ⚠️ <strong>Alpha Status:</strong> v0.2.0 - Under active development. API may change. Includes 35 components, 5 themes, and 3 example applications.
+            <Link href="/examples" className="ml-2 underline font-medium">
+              View examples →
+            </Link>
+          </Alert>
+        </div>
       </section>
 
       {/* Features Section with Cards */}
-      <section className="section-padding bg-neutral-50">
+      <section className="py-20 md:py-32 bg-neutral-50">
         <div className="container-custom">
-          <Stack direction="column" gap="xl" align="center" className="max-w-2xl mx-auto text-center mb-16">
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
             <Badge variant="primary">Features</Badge>
-            <h2>Built for Modern Development</h2>
-            <p className="text-lg text-neutral-600">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+              Built for Modern Development
+            </h2>
+            <p className="text-lg md:text-xl text-neutral-600 leading-relaxed">
               Everything you need to build enterprise applications with confidence.
             </p>
-          </Stack>
+          </div>
 
-          <Grid cols={3} gap="lg" className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <Grid cols={3} gap="8" className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
               <Card key={index} variant="elevated" hover>
                 <CardBody>
-                  <Stack direction="column" gap="md">
-                    <div className="h-12 w-12 bg-primary-500 flex items-center justify-center text-white text-2xl rounded">
+                  <div className="space-y-4">
+                    <div className="h-14 w-14 bg-primary-500 flex items-center justify-center text-white text-3xl rounded-none">
                       {feature.icon}
                     </div>
-                    <h3 className="text-xl font-semibold">{feature.title}</h3>
-                    <p className="text-neutral-600">{feature.description}</p>
+                    <h3 className="text-xl font-semibold text-neutral-900 leading-tight">
+                      {feature.title}
+                    </h3>
+                    <p className="text-base text-neutral-600 leading-relaxed">
+                      {feature.description}
+                    </p>
                     <Badge variant="secondary" size="sm">{feature.badge}</Badge>
-                  </Stack>
+                  </div>
                 </CardBody>
               </Card>
             ))}
@@ -146,18 +156,20 @@ export default function HomePage() {
       </section>
 
       {/* Component Categories with Interactive Cards */}
-      <section className="section-padding bg-white">
+      <section className="py-20 md:py-32 bg-white">
         <div className="container-custom">
-          <Stack direction="column" gap="xl" align="center" className="max-w-2xl mx-auto text-center mb-16">
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
             <Badge variant="success">Component Library</Badge>
-            <h2>Comprehensive Component Collection</h2>
-            <p className="text-lg text-neutral-600">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+              Comprehensive Component Collection
+            </h2>
+            <p className="text-lg md:text-xl text-neutral-600 leading-relaxed">
               From basic atoms to complex organisms. All components are accessible, tested, and documented.
             </p>
-          </Stack>
+          </div>
 
           <Tabs defaultValue="atoms">
-            <TabList className="mb-8">
+            <TabList className="mb-12">
               <Tab value="atoms">Atoms (19)</Tab>
               <Tab value="molecules">Molecules (10)</Tab>
               <Tab value="organisms">Organisms (6)</Tab>
@@ -218,7 +230,7 @@ export default function HomePage() {
             </TabPanel>
           </Tabs>
 
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <Link href="/components">
               <Button variant="primary" size="lg">
                 Explore All Components →
@@ -231,17 +243,19 @@ export default function HomePage() {
       <Divider />
 
       {/* Real-World Examples Section */}
-      <section className="section-padding bg-neutral-50">
+      <section className="py-20 md:py-32 bg-neutral-50">
         <div className="container-custom">
-          <Stack direction="column" gap="xl" align="center" className="max-w-2xl mx-auto text-center mb-16">
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
             <Badge variant="info">Example Applications</Badge>
-            <h2>Real-World Examples</h2>
-            <p className="text-lg text-neutral-600">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+              Real-World Examples
+            </h2>
+            <p className="text-lg md:text-xl text-neutral-600 leading-relaxed">
               See how components work together in complete application examples (alpha quality).
             </p>
-          </Stack>
+          </div>
 
-          <Grid cols={2} gap="lg" className="grid-cols-1 lg:grid-cols-2">
+          <Grid cols={2} gap="8" className="grid-cols-1 lg:grid-cols-2">
             {examples.map((example, index) => (
               <Card key={index} variant="elevated" hover>
                 <CardHeader>
@@ -282,18 +296,20 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section with Card */}
-      <section className="section-padding bg-primary-500">
+      <section className="py-20 md:py-32 bg-primary-500">
         <div className="container-custom">
           <Card variant="flat" size="lg" className="bg-primary-600/20 border-2 border-white/20 max-w-4xl mx-auto">
             <CardBody>
-              <Stack direction="column" gap="lg" align="center" className="text-center text-white">
+              <div className="text-center text-white space-y-8 py-8">
                 <Badge variant="secondary" size="lg">Ready to Start?</Badge>
-                <h2 className="text-white">Start Building Today</h2>
-                <p className="text-lg text-primary-100 max-w-2xl">
+                <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white">
+                  Start Building Today
+                </h2>
+                <p className="text-lg md:text-xl text-primary-100 max-w-2xl mx-auto leading-relaxed">
                   Explore 35 Carbon-inspired components in alpha. Perfect for prototyping
                   and development. Full documentation and examples included.
                 </p>
-                <Stack direction="row" gap="md">
+                <div className="flex flex-wrap justify-center gap-3 pt-4">
                   <Link href="/docs">
                     <Button variant="secondary" size="lg">
                       Read Documentation
@@ -304,11 +320,11 @@ export default function HomePage() {
                       View Pricing
                     </Button>
                   </Link>
-                </Stack>
-                <div className="mt-4 text-sm text-primary-100">
+                </div>
+                <div className="text-sm text-primary-100 pt-2">
                   Open source • MIT License • Active development
                 </div>
-              </Stack>
+              </div>
             </CardBody>
           </Card>
         </div>
