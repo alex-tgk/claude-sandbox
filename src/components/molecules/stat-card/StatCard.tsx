@@ -12,8 +12,8 @@ export interface StatCardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const trendClasses: Record<StatTrend, string> = {
-  up: 'text-green-600',
-  down: 'text-red-600',
+  up: 'text-success',
+  down: 'text-error',
   neutral: 'text-text-muted',
 };
 

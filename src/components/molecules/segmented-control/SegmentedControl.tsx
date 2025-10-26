@@ -43,8 +43,10 @@ export const SegmentedControl = forwardRef<HTMLDivElement, SegmentedControlProps
             disabled={option.disabled}
             onClick={() => !option.disabled && onChange(option.value)}
             className={cn(
-              'flex flex-1 items-center justify-center gap-2 border-r border-border-subtle first:rounded-l-lg last:rounded-r-lg last:border-r-0 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 disabled:opacity-40',
-              isSelected ? 'bg-brand-50 text-brand-900 font-medium' : 'text-text-muted hover:bg-surface-muted',
+              'flex flex-1 items-center justify-center gap-2 border-r border-border-subtle first:rounded-l-lg last:rounded-r-lg last:border-r-0 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:opacity-40 disabled:cursor-not-allowed',
+              isSelected
+                ? 'bg-interactive/10 text-interactive font-semibold'
+                : 'text-text-muted hover:bg-surface-muted',
               sizeClasses[size]
             )}
           >

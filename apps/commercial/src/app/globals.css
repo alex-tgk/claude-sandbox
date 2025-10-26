@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Global styles for the Modular UI commercial showcase
+ * Implements IBM Carbon Design System aesthetic
+ */
+
+@layer base {
+  :root {
+    /* Color tokens */
+    --color-background: 255 255 255;
+    --color-foreground: 22 22 22;
+    --color-primary: 15 98 254;
+    --color-primary-foreground: 255 255 255;
+    --color-secondary: 109 109 109;
+    --color-secondary-foreground: 255 255 255;
+    --color-accent: 240 240 240;
+    --color-accent-foreground: 22 22 22;
+    --color-muted: 244 244 244;
+    --color-muted-foreground: 109 109 109;
+    --color-border: 230 230 230;
+
+    /* Typography */
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+  }
+
+  [data-theme='dark'] {
+    --color-background: 22 22 22;
+    --color-foreground: 244 244 244;
+    --color-primary: 15 98 254;
+    --color-primary-foreground: 255 255 255;
+    --color-secondary: 109 109 109;
+    --color-secondary-foreground: 255 255 255;
+    --color-accent: 38 38 38;
+    --color-accent-foreground: 244 244 244;
+    --color-muted: 38 38 38;
+    --color-muted-foreground: 168 168 168;
+    --color-border: 57 57 57;
+  }
+
+  * {
+    border-color: rgb(var(--color-border));
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-neutral-900 antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+  }
+
+  code {
+    @apply rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-sm;
+    font-family: var(--font-mono);
+  }
+
+  pre {
+    @apply overflow-x-auto rounded bg-neutral-900 p-4 text-sm text-neutral-50;
+  }
+
+  pre code {
+    @apply bg-transparent p-0;
+  }
+}
+
+@layer components {
+  /* Custom component utilities */
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .card-shadow {
+    @apply shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+}

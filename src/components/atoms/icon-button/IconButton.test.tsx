@@ -14,6 +14,6 @@ describe('IconButton', () => {
         O
       </IconButton>
     );
-    expect(screen.getByLabelText('Primary')).toHaveClass('bg-brand-600');
+    expect(screen.getByLabelText('Primary')).toHaveClass('bg-interactive');
   });
 });

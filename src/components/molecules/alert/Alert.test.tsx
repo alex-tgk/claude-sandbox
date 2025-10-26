@@ -35,22 +35,22 @@ describe('Alert', () => {
   describe('variants', () => {
     it('renders info variant by default', () => {
       const { container } = render(<Alert>Content</Alert>);
-      expect(container.firstChild).toHaveClass('bg-blue-50');
+    expect(container.firstChild).toHaveClass('bg-info-light');
     });
 
     it('renders success variant', () => {
       const { container } = render(<Alert variant="success">Content</Alert>);
-      expect(container.firstChild).toHaveClass('bg-green-50');
+    expect(container.firstChild).toHaveClass('bg-success-light');
     });
 
     it('renders warning variant', () => {
       const { container } = render(<Alert variant="warning">Content</Alert>);
-      expect(container.firstChild).toHaveClass('bg-yellow-50');
+    expect(container.firstChild).toHaveClass('bg-warning-light');
     });
 
     it('renders error variant', () => {
       const { container } = render(<Alert variant="error">Content</Alert>);
-      expect(container.firstChild).toHaveClass('bg-red-50');
+    expect(container.firstChild).toHaveClass('bg-error-light');
     });
   });
 
@@ -240,10 +240,10 @@ describe('Alert', () => {
       const { container: warning } = render(<Alert variant="warning">Warning</Alert>);
       const { container: error } = render(<Alert variant="error">Error</Alert>);
 
-      expect(info.firstChild).toHaveClass('bg-blue-50');
-      expect(success.firstChild).toHaveClass('bg-green-50');
-      expect(warning.firstChild).toHaveClass('bg-yellow-50');
-      expect(error.firstChild).toHaveClass('bg-red-50');
+    expect(info.firstChild).toHaveClass('bg-info-light');
+    expect(success.firstChild).toHaveClass('bg-success-light');
+    expect(warning.firstChild).toHaveClass('bg-warning-light');
+    expect(error.firstChild).toHaveClass('bg-error-light');
     });
 
     it('applies focus ring colors matching variant on dismiss button', () => {

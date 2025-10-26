@@ -62,31 +62,31 @@ export interface EmptyStateProps extends HTMLAttributes<HTMLElement> {
 }
 
 const toneSurfaces: Record<EmptyStateTone, string> = {
-  neutral: 'border-slate-200 bg-white text-slate-900',
-  informative: 'border-blue-100 bg-blue-50 text-blue-950',
-  positive: 'border-emerald-100 bg-emerald-50 text-emerald-950',
-  destructive: 'border-rose-100 bg-rose-50 text-rose-950',
+  neutral: 'border-border-subtle bg-surface text-text',
+  informative: 'border-info bg-info-light text-info',
+  positive: 'border-success bg-success-light text-success',
+  destructive: 'border-error bg-error-light text-error',
 };
 
 const toneDescriptions: Record<EmptyStateTone, string> = {
-  neutral: 'text-slate-600',
-  informative: 'text-blue-800',
-  positive: 'text-emerald-700',
-  destructive: 'text-rose-700',
+  neutral: 'text-text-muted',
+  informative: 'text-info',
+  positive: 'text-success',
+  destructive: 'text-error',
 };
 
 const toneIconWrappers: Record<EmptyStateTone, string> = {
-  neutral: 'border-slate-200 bg-white text-slate-500',
-  informative: 'border-blue-200 bg-white text-blue-500',
-  positive: 'border-emerald-200 bg-white text-emerald-500',
-  destructive: 'border-rose-200 bg-white text-rose-500',
+  neutral: 'border-border-subtle bg-surface text-text-muted',
+  informative: 'border-info bg-surface text-info',
+  positive: 'border-success bg-surface text-success',
+  destructive: 'border-error bg-surface text-error',
 };
 
 const toneEyebrow: Record<EmptyStateTone, string> = {
-  neutral: 'text-slate-500',
-  informative: 'text-blue-600',
-  positive: 'text-emerald-600',
-  destructive: 'text-rose-600',
+  neutral: 'text-text-muted',
+  informative: 'text-info',
+  positive: 'text-success',
+  destructive: 'text-error',
 };
 
 const DefaultMedia = () => (

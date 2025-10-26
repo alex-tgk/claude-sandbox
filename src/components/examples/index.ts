@@ -15,5 +15,17 @@
  * @since 0.3.0
  */
 
+// Project Management
 export { ProjectDashboard } from './ProjectDashboard';
+
+// Design System Showcase
 export { CarbonShowcase } from './CarbonShowcase';
+
+// E-Commerce
+export { ProductCatalog } from './ProductCatalog';
+
+// Analytics & Data Visualization
+export { AnalyticsDashboard } from './AnalyticsDashboard';
+
+// Settings & Profile Management
+export { SettingsProfile } from './SettingsProfile';

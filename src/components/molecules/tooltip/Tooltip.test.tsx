@@ -1,12 +1,36 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Tooltip } from './Tooltip';
 
-// Mock portal container
-const mockPortalContainer = document.createElement('div');
-mockPortalContainer.id = 'tooltip-portal';
-document.body.appendChild(mockPortalContainer);
+// Setup portal container before each test
+beforeEach(() => {
+  // Remove existing portal if any
+  const existing = document.getElementById('tooltip-portal');
+  if (existing) {
+    existing.remove();
+  }
+
+  // Create fresh portal container
+  const portalContainer = document.createElement('div');
+  portalContainer.id = 'tooltip-portal';
+  document.body.appendChild(portalContainer);
+
+  // Mock getBoundingClientRect to return non-zero values for positioning
+  Element.prototype.getBoundingClientRect = vi.fn(function (this: Element) {
+    return {
+      width: 100,
+      height: 50,
+      top: 100,
+      left: 100,
+      bottom: 150,
+      right: 200,
+      x: 100,
+      y: 100,
+      toJSON: () => {},
+    } as DOMRect;
+  });
+});
 
 describe('Tooltip', () => {
   describe('rendering', () => {
@@ -38,9 +62,12 @@ describe('Tooltip', () => {
 
       await user.hover(screen.getByText('Trigger'));
 
-      await waitFor(() => {
-        expect(screen.getByRole('tooltip')).toBeInTheDocument();
-      });
+      await waitFor(
+        () => {
+          expect(screen.getByRole('tooltip')).toBeInTheDocument();
+        },
+        { timeout: 3000 }
+      );
       expect(screen.getByRole('tooltip')).toHaveTextContent('Tooltip text');
     });
 

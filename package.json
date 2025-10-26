@@ -36,6 +36,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "generate:component": "tsx scripts/generate-component.ts",
+    "docs:generate": "tsx scripts/generate-docs.ts",
     "precommit": "npm run lint && npm run format:check && npm run typecheck && npm run test:coverage",
     "prepare": "npm run build:lib"
   },

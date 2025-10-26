@@ -28,21 +28,21 @@ export interface OpportunityRadarProps extends HTMLAttributes<HTMLElement> {
 }
 
 const impactStyles: Record<OpportunityImpact, string> = {
-  low: 'bg-emerald-50 text-emerald-700',
-  medium: 'bg-amber-50 text-amber-700',
-  high: 'bg-rose-50 text-rose-700',
+  low: 'bg-success-light text-success',
+  medium: 'bg-warning-light text-warning',
+  high: 'bg-error-light text-error',
 };
 
 const impactProgress: Record<OpportunityImpact, string> = {
-  low: 'bg-emerald-400',
-  medium: 'bg-amber-400',
-  high: 'bg-rose-500',
+  low: 'bg-success',
+  medium: 'bg-warning',
+  high: 'bg-error',
 };
 
 const trendCopy: Record<OpportunityTrend, { label: string; icon: string; color: string }> = {
-  up: { label: 'Trending up', icon: '^', color: 'text-emerald-600' },
-  down: { label: 'Trending down', icon: 'v', color: 'text-rose-600' },
-  steady: { label: 'Holding steady', icon: '->', color: 'text-slate-500' },
+  up: { label: 'Trending up', icon: '^', color: 'text-success' },
+  down: { label: 'Trending down', icon: 'v', color: 'text-error' },
+  steady: { label: 'Holding steady', icon: '->', color: 'text-text-muted' },
 };
 
 export const OpportunityRadar = forwardRef<HTMLElement, OpportunityRadarProps>(function OpportunityRadar(
@@ -74,24 +74,24 @@ export const OpportunityRadar = forwardRef<HTMLElement, OpportunityRadarProps>(f
     <section
       ref={ref}
       className={cn(
-        'relative overflow-hidden rounded-4xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-50 p-8 shadow-[0_20px_60px_rgba(15,23,42,0.12)]',
+        'relative overflow-hidden rounded-4xl border border-border-subtle bg-gradient-to-br from-surface-muted via-surface to-surface-muted p-8 shadow-[0_20px_60px_rgba(15,23,42,0.12)]',
         className
       )}
       {...rest}
     >
       <div className="pointer-events-none absolute inset-0 select-none opacity-60">
-        <div className="absolute -top-32 -right-16 h-72 w-72 rounded-full bg-gradient-to-br from-indigo-200/60 via-sky-100 to-purple-100 blur-3xl" />
-        <div className="absolute -bottom-20 -left-10 h-48 w-48 rounded-full bg-gradient-to-br from-amber-100 via-white to-transparent blur-2xl" />
+        <div className="absolute -top-32 -right-16 h-72 w-72 rounded-full bg-gradient-to-br from-brand-20/60 via-info-light to-brand-40/40 blur-3xl" />
+        <div className="absolute -bottom-20 -left-10 h-48 w-48 rounded-full bg-gradient-to-br from-warning-light via-surface to-transparent blur-2xl" />
       </div>
 
       <div className="relative flex flex-col gap-8 lg:flex-row">
         <div className="flex-1 space-y-6">
           {eyebrow && (
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{eyebrow}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">{eyebrow}</p>
           )}
           <div className="space-y-3">
-            <h3 className="text-3xl font-semibold tracking-tight text-slate-900">{title}</h3>
-            {subtitle && <p className="max-w-2xl text-base text-slate-600">{subtitle}</p>}
+            <h3 className="text-3xl font-semibold tracking-tight text-text">{title}</h3>
+            {subtitle && <p className="max-w-2xl text-base text-text-muted">{subtitle}</p>}
           </div>
           <div className="flex flex-wrap items-center gap-3">
             {primaryAction}
@@ -99,19 +99,19 @@ export const OpportunityRadar = forwardRef<HTMLElement, OpportunityRadarProps>(f
           </div>
         </div>
 
-        <div className="w-full max-w-xs rounded-3xl border border-slate-200/60 bg-white/70 p-6 text-center shadow-inner">
-          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{spotlightLabel}</p>
-          <p className="mt-3 text-6xl font-semibold text-slate-900">{spotlightValue}</p>
-          <p className="mt-2 text-sm font-medium text-emerald-600">{spotlightChange}</p>
+        <div className="w-full max-w-xs rounded-3xl border border-border-subtle/60 bg-surface/90 p-6 text-center shadow-inner">
+          <p className="text-xs font-medium uppercase tracking-wide text-text-muted">{spotlightLabel}</p>
+          <p className="mt-3 text-6xl font-semibold text-text">{spotlightValue}</p>
+          <p className="mt-2 text-sm font-medium text-success">{spotlightChange}</p>
           <div className="mt-6">
-            <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">Alignment index</div>
-            <div className="mt-3 h-2 w-full rounded-full bg-slate-100">
+            <div className="text-xs font-semibold uppercase tracking-wide text-text-muted">Alignment index</div>
+            <div className="mt-3 h-2 w-full rounded-full bg-border-subtle/60">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-purple-500 via-indigo-500 to-sky-400"
+                className="h-full rounded-full bg-gradient-to-r from-brand-40 via-brand-50 to-brand-60"
                 style={{ width: `${completion}%` }}
               />
             </div>
-            <p className="mt-2 text-sm text-slate-600">{completion}% validated confidence</p>
+            <p className="mt-2 text-sm text-text-muted">{completion}% validated confidence</p>
           </div>
         </div>
       </div>
@@ -125,12 +125,12 @@ export const OpportunityRadar = forwardRef<HTMLElement, OpportunityRadarProps>(f
               return (
                 <li
                   key={item.id}
-                  className="group rounded-3xl border border-slate-200/70 bg-white/80 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg"
+                  className="group rounded-3xl border border-border-subtle/70 bg-surface/90 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-border-subtle hover:shadow-lg"
                 >
                   <div className="flex flex-wrap items-start gap-3">
                     <div className="flex-1 min-w-[220px]">
                       <div className="flex items-center gap-2">
-                        <p className="text-lg font-medium text-slate-900">{item.label}</p>
+                        <p className="text-lg font-medium text-text">{item.label}</p>
                         <span
                           className={cn(
                             'rounded-full px-2.5 py-0.5 text-xs font-semibold capitalize',
@@ -141,12 +141,12 @@ export const OpportunityRadar = forwardRef<HTMLElement, OpportunityRadarProps>(f
                         </span>
                       </div>
                       {item.description && (
-                        <p className="mt-1 text-sm text-slate-600">{item.description}</p>
+                        <p className="mt-1 text-sm text-text-muted">{item.description}</p>
                       )}
-                      <div className="mt-2 flex flex-wrap items-center gap-3 text-xs text-slate-500">
+                      <div className="mt-2 flex flex-wrap items-center gap-3 text-xs text-text-muted">
                         {item.owner && <span>Owner: {item.owner}</span>}
                         {item.tag && (
-                          <span className="rounded-full border border-slate-200 px-2 py-0.5 text-[11px] uppercase tracking-wide">
+                          <span className="rounded-full border border-border-subtle px-2 py-0.5 text-[11px] uppercase tracking-wide text-text">
                             {item.tag}
                           </span>
                         )}
@@ -159,11 +159,11 @@ export const OpportunityRadar = forwardRef<HTMLElement, OpportunityRadarProps>(f
                       </div>
                     </div>
                     <div className="w-full max-w-[220px] space-y-2">
-                      <div className="flex items-center justify-between text-xs font-semibold text-slate-400">
+                      <div className="flex items-center justify-between text-xs font-semibold text-text-muted">
                         <span>Confidence</span>
                         <span>{Math.round(clampedConfidence * 100)}%</span>
                       </div>
-                      <div className="h-2 rounded-full bg-slate-100">
+                      <div className="h-2 rounded-full bg-border-subtle/60">
                         <div
                           className={cn('h-full rounded-full', impactProgress[item.impact])}
                           style={{ width: `${clampedConfidence * 100}%` }}
@@ -176,7 +176,7 @@ export const OpportunityRadar = forwardRef<HTMLElement, OpportunityRadarProps>(f
             })}
           </ol>
         ) : (
-          <div className="rounded-3xl border border-dashed border-slate-300/80 bg-white/70 p-8 text-center text-sm text-slate-500">
+          <div className="rounded-3xl border border-dashed border-border-subtle/80 bg-surface/90 p-8 text-center text-sm text-text-muted">
             Add opportunity signals to project confidence and prioritize the backlog.
           </div>
         )}

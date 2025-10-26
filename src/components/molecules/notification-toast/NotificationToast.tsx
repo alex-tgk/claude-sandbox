@@ -14,10 +14,10 @@ export interface NotificationToastProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const variantClasses: Record<NotificationToastVariant, string> = {
-  info: 'border-blue-200 bg-blue-50 text-blue-900',
-  success: 'border-green-200 bg-green-50 text-green-900',
-  warning: 'border-yellow-200 bg-yellow-50 text-yellow-900',
-  danger: 'border-red-200 bg-red-50 text-red-900',
+  info: 'border-info bg-info-light',
+  success: 'border-success bg-success-light',
+  warning: 'border-warning bg-warning-light',
+  danger: 'border-error bg-error-light',
 };
 
 export const NotificationToast = forwardRef<HTMLDivElement, NotificationToastProps>(
@@ -31,14 +31,14 @@ export const NotificationToast = forwardRef<HTMLDivElement, NotificationToastPro
       onAction,
       onDismiss,
       dismissible = true,
-      role = 'status',
+      role: incomingRole = 'status',
       ...props
     },
     ref
   ) => (
     <div
       ref={ref}
-      role={role}
+      role={variant === 'danger' ? 'alert' : incomingRole}
       className={cn(
         'flex w-full max-w-md items-start gap-3 rounded-lg border p-4 shadow-lg shadow-black/5',
         variantClasses[variant],
@@ -52,7 +52,7 @@ export const NotificationToast = forwardRef<HTMLDivElement, NotificationToastPro
         {actionLabel ? (
           <button
             type="button"
-            className="mt-3 text-sm font-medium underline decoration-2"
+            className="mt-3 text-sm font-medium text-interactive underline decoration-2 underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
             onClick={onAction}
           >
             {actionLabel}
@@ -63,7 +63,7 @@ export const NotificationToast = forwardRef<HTMLDivElement, NotificationToastPro
         <button
           type="button"
           aria-label="Dismiss notification"
-          className="text-sm font-semibold"
+          className="rounded-full p-1 text-text-muted transition hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
           onClick={onDismiss}
         >
           x

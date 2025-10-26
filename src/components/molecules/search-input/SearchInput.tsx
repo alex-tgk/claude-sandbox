@@ -13,9 +13,10 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
 
     return (
       <div
+        role="search"
         className={cn(
           'flex items-center gap-2 rounded-lg border border-border-subtle bg-surface px-3 py-2 shadow-sm',
-          'focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-200',
+          'focus-within:border-border-focus focus-within:ring-2 focus-within:ring-border-focus focus-within:ring-offset-2 focus-within:ring-offset-surface',
           className
         )}
       >
@@ -37,6 +38,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
           type="search"
           value={value}
           placeholder={placeholder}
+          aria-busy={isLoading}
           className="flex-1 border-none bg-transparent text-sm text-text placeholder:text-text-muted focus:outline-none"
           {...props}
         />
@@ -46,7 +48,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
           <button
             type="button"
             aria-label="Clear search"
-            className="text-sm text-text-muted transition hover:text-text"
+            className="text-sm text-text-muted transition hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2"
             onClick={onClear}
           >
             x

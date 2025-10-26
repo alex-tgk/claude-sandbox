@@ -64,28 +64,28 @@ const accentThemes: Record<
   { pill: string; progress: string; iconFilled: string; badge: string }
 > = {
   purple: {
-    pill: 'bg-violet-50 text-violet-700',
-    progress: 'bg-violet-500',
-    iconFilled: 'bg-violet-500 text-white border-violet-500',
-    badge: 'bg-violet-100 text-violet-700',
+    pill: 'bg-brand-20 text-brand-80',
+    progress: 'bg-brand-60',
+    iconFilled: 'bg-brand-60 text-text-on-color border-brand-60',
+    badge: 'bg-brand-10 text-brand-80',
   },
   blue: {
-    pill: 'bg-sky-50 text-sky-700',
-    progress: 'bg-sky-500',
-    iconFilled: 'bg-sky-500 text-white border-sky-500',
-    badge: 'bg-sky-100 text-sky-700',
+    pill: 'bg-info-light text-info',
+    progress: 'bg-info',
+    iconFilled: 'bg-info text-text-on-color border-info',
+    badge: 'bg-info-light text-info',
   },
   teal: {
-    pill: 'bg-teal-50 text-teal-700',
-    progress: 'bg-teal-500',
-    iconFilled: 'bg-teal-500 text-white border-teal-500',
-    badge: 'bg-teal-100 text-teal-700',
+    pill: 'bg-success-light text-success',
+    progress: 'bg-success',
+    iconFilled: 'bg-success text-text-on-color border-success',
+    badge: 'bg-success-light text-success',
   },
   amber: {
-    pill: 'bg-amber-50 text-amber-800',
-    progress: 'bg-amber-500',
-    iconFilled: 'bg-amber-500 text-white border-amber-500',
-    badge: 'bg-amber-100 text-amber-800',
+    pill: 'bg-warning-light text-warning',
+    progress: 'bg-warning',
+    iconFilled: 'bg-warning text-text-on-color border-warning',
+    badge: 'bg-warning-light text-warning',
   },
 };
 
@@ -129,7 +129,7 @@ export const OnboardingChecklist = forwardRef<HTMLElement, OnboardingChecklistPr
         ref={ref}
         aria-labelledby={headingId}
         className={cn(
-          'flex flex-col rounded-3xl border border-slate-200 bg-white/90 shadow-lg ring-1 ring-black/5',
+          'flex flex-col rounded-3xl border border-border-subtle bg-surface/90 shadow-lg ring-1 ring-black/5',
           dense ? 'gap-5 p-6' : 'gap-6 p-8',
           className
         )}
@@ -138,10 +138,10 @@ export const OnboardingChecklist = forwardRef<HTMLElement, OnboardingChecklistPr
         <header className="flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex-1 min-w-[180px]">
-              <p id={headingId} className="text-sm font-semibold text-slate-900">
+              <p id={headingId} className="text-sm font-semibold text-text">
                 {heading}
               </p>
-              {subheading && <p className="text-sm text-slate-600">{subheading}</p>}
+              {subheading && <p className="text-sm text-text-muted">{subheading}</p>}
             </div>
             <span
               className={cn(
@@ -154,7 +154,7 @@ export const OnboardingChecklist = forwardRef<HTMLElement, OnboardingChecklistPr
           </div>
           <div className="space-y-2">
             <div
-              className="relative h-2 w-full rounded-full bg-slate-100"
+              className="relative h-2 w-full rounded-full bg-border-subtle/60"
               role="progressbar"
               aria-valuenow={progressPercent}
               aria-valuemin={0}
@@ -166,7 +166,7 @@ export const OnboardingChecklist = forwardRef<HTMLElement, OnboardingChecklistPr
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
-            <p id={progressLabelId} className="text-xs font-medium uppercase tracking-wide text-slate-500">
+            <p id={progressLabelId} className="text-xs font-medium uppercase tracking-wide text-text-muted">
               {progressPercent}% complete
             </p>
           </div>
@@ -177,14 +177,14 @@ export const OnboardingChecklist = forwardRef<HTMLElement, OnboardingChecklistPr
             {items.map((item, index) => (
               <li
                 key={item.id}
-                className="flex gap-4 rounded-2xl border border-slate-200/80 bg-white/80 p-4 shadow-sm"
+                className="flex gap-4 rounded-2xl border border-border-subtle/80 bg-surface/90 p-4 shadow-sm"
               >
                 <div
                   className={cn(
                     'flex h-10 w-10 items-center justify-center rounded-xl border text-sm font-semibold transition-colors',
                     item.completed
                       ? accentTheme.iconFilled
-                      : 'border-slate-200 text-slate-500'
+                      : 'border-border-subtle text-text-muted'
                   )}
                   aria-hidden="true"
                 >
@@ -193,21 +193,21 @@ export const OnboardingChecklist = forwardRef<HTMLElement, OnboardingChecklistPr
 
                 <div className="flex flex-1 flex-col gap-2">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-base font-medium text-slate-900">{item.title}</span>
+                    <span className="text-base font-medium text-text">{item.title}</span>
                     {item.badge && (
                       <span className={cn('rounded-full px-2 py-0.5 text-xs font-medium', accentTheme.badge)}>
                         {item.badge}
                       </span>
                     )}
                   </div>
-                  {item.description && <p className="text-sm text-slate-600">{item.description}</p>}
-                  {item.action && <div className="pt-1 text-sm text-slate-700">{item.action}</div>}
+                  {item.description && <p className="text-sm text-text-muted">{item.description}</p>}
+                  {item.action && <div className="pt-1 text-sm text-text">{item.action}</div>}
                 </div>
               </li>
             ))}
           </ol>
         ) : (
-          <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50/80 p-6 text-center text-sm text-slate-600">
+          <div className="rounded-2xl border border-dashed border-border-subtle bg-surface-muted/80 p-6 text-center text-sm text-text-muted">
             Add checklist items to guide customers through onboarding moments.
           </div>
         )}

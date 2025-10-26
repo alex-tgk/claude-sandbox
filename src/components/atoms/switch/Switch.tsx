@@ -137,7 +137,7 @@ const getVariantClasses = (variant: SwitchVariant, checked: boolean): string => 
   }
 
   const variants: Record<SwitchVariant, string> = {
-    primary: 'bg-brand-600',
+    primary: 'bg-interactive',
     secondary: 'bg-surface-active',
     success: 'bg-success',
   };

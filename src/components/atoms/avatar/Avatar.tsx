@@ -19,10 +19,10 @@ const sizeClasses: Record<AvatarSize, string> = {
 };
 
 const statusClasses: Record<AvatarStatus, string> = {
-  online: 'bg-green-500',
-  offline: 'bg-gray-400',
-  busy: 'bg-red-500',
-  away: 'bg-amber-400',
+  online: 'bg-success',
+  offline: 'bg-border-subtle',
+  busy: 'bg-error',
+  away: 'bg-warning',
 };
 
 const getInitials = (name?: string): string => {

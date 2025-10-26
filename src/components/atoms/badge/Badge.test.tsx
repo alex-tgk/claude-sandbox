@@ -18,7 +18,7 @@ describe('Badge', () => {
     it('renders with default variant and size', () => {
       const { container } = render(<Badge>Default</Badge>);
       const badge = container.firstChild as HTMLElement;
-      expect(badge).toHaveClass('bg-brand-100', 'text-brand-700');
+      expect(badge).toHaveClass('bg-brand-10', 'text-brand-80');
       expect(badge).toHaveClass('px-2.5', 'py-1', 'text-sm');
     });
 
@@ -33,7 +33,7 @@ describe('Badge', () => {
   describe('variants', () => {
     it('renders primary variant', () => {
       const { container } = render(<Badge variant="primary">Primary</Badge>);
-      expect(container.firstChild).toHaveClass('bg-brand-100', 'text-brand-700');
+      expect(container.firstChild).toHaveClass('bg-brand-10', 'text-brand-80');
     });
 
     it('renders secondary variant', () => {
@@ -43,22 +43,22 @@ describe('Badge', () => {
 
     it('renders success variant', () => {
       const { container } = render(<Badge variant="success">Success</Badge>);
-      expect(container.firstChild).toHaveClass('bg-green-100', 'text-green-700');
+      expect(container.firstChild).toHaveClass('bg-success-light', 'text-success');
     });
 
     it('renders warning variant', () => {
       const { container } = render(<Badge variant="warning">Warning</Badge>);
-      expect(container.firstChild).toHaveClass('bg-yellow-100', 'text-yellow-700');
+      expect(container.firstChild).toHaveClass('bg-warning-light', 'text-warning');
     });
 
     it('renders error variant', () => {
       const { container } = render(<Badge variant="error">Error</Badge>);
-      expect(container.firstChild).toHaveClass('bg-red-100', 'text-red-700');
+      expect(container.firstChild).toHaveClass('bg-error-light', 'text-error');
     });
 
     it('renders info variant', () => {
       const { container } = render(<Badge variant="info">Info</Badge>);
-      expect(container.firstChild).toHaveClass('bg-blue-100', 'text-blue-700');
+      expect(container.firstChild).toHaveClass('bg-info-light', 'text-info');
     });
   });
 
@@ -96,7 +96,7 @@ describe('Badge', () => {
       const { container } = render(<Badge dot variant="success" />);
       const dot = container.firstChild as HTMLElement;
       expect(dot.tagName).toBe('SPAN');
-      expect(dot).toHaveClass('rounded-full', 'bg-green-100');
+      expect(dot).toHaveClass('rounded-full', 'bg-success-light');
       expect(dot).toHaveClass('h-2.5', 'w-2.5'); // medium size
     });
 

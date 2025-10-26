@@ -12,10 +12,10 @@ export interface ProgressBarProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const toneClasses: Record<ProgressBarTone, string> = {
-  brand: 'bg-brand-600',
-  success: 'bg-green-600',
-  warning: 'bg-yellow-500',
-  danger: 'bg-red-600',
+  brand: 'bg-interactive',
+  success: 'bg-success',
+  warning: 'bg-warning',
+  danger: 'bg-error',
 };
 
 export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(

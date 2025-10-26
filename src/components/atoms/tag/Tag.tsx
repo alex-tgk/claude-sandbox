@@ -13,10 +13,10 @@ export interface TagProps extends HTMLAttributes<HTMLDivElement> {
 
 const variantClasses: Record<TagVariant, string> = {
   neutral: 'bg-surface-muted text-text border-border-subtle',
-  success: 'bg-green-50 text-green-800 border-green-200',
-  warning: 'bg-yellow-50 text-yellow-800 border-yellow-200',
-  danger: 'bg-red-50 text-red-800 border-red-200',
-  info: 'bg-blue-50 text-blue-800 border-blue-200',
+  success: 'bg-success-light text-success border-success',
+  warning: 'bg-warning-light text-warning border-warning',
+  danger: 'bg-error-light text-error border-error',
+  info: 'bg-info-light text-info border-info',
 };
 
 const sizeClasses: Record<TagSize, string> = {
@@ -30,8 +30,8 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(
       <div
         ref={ref}
         className={cn(
-          'inline-flex items-center rounded-full border font-medium leading-tight',
-          'focus-within:ring-2 focus-within:ring-brand-500 focus-within:ring-offset-2',
+          'inline-flex items-center rounded-full border font-medium leading-tight transition-colors',
+          'focus-within:ring-2 focus-within:ring-border-focus focus-within:ring-offset-2 focus-within:ring-offset-transparent',
           variantClasses[variant],
           sizeClasses[size],
           className
@@ -43,7 +43,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(
           <button
             type="button"
             aria-label="Remove tag"
-            className="rounded-full p-0.5 text-current transition hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+            className="rounded-full p-0.5 text-current transition hover:bg-border-subtle/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
             onClick={onRemove}
           >
             x

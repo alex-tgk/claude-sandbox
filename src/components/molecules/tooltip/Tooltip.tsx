@@ -261,22 +261,22 @@ export function Tooltip({
 
   // Render tooltip via portal
   const tooltipElement =
-    isVisible && position && portalContainer ? (
+    isVisible && portalContainer ? (
       <div
         ref={tooltipRef}
         id={tooltipId}
         role="tooltip"
         className={cn(
           // Base styles
-          'absolute z-50 px-3 py-2 text-sm font-medium text-white',
-          'bg-gray-900 rounded-md shadow-lg',
+          'absolute z-50 px-3 py-2 text-sm font-medium text-text-inverse',
+          'bg-text rounded-md shadow-lg border border-border-inverse/40',
           'animate-in fade-in-0 zoom-in-95',
           'duration-200',
           className
         )}
         style={{
-          top: `${position.top}px`,
-          left: `${position.left}px`,
+          top: `${position?.top ?? -9999}px`,
+          left: `${position?.left ?? -9999}px`,
           maxWidth,
         }}
       >
@@ -285,10 +285,10 @@ export function Tooltip({
         {/* Arrow */}
         <div
           className={cn(
-            'absolute w-2 h-2 bg-gray-900 transform rotate-45',
+            'absolute w-2 h-2 bg-text transform rotate-45',
             arrowClassName
           )}
-          style={getArrowStyle(placement, position.arrowOffset)}
+          style={getArrowStyle(placement, position?.arrowOffset ?? 0)}
           aria-hidden="true"
         />
       </div>
