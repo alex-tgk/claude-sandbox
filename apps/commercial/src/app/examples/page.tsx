@@ -48,27 +48,29 @@ export default function ExamplesPage() {
         <div className="container-custom">
           <Grid cols={2} gap="8" className="grid-cols-1 lg:grid-cols-2">
             {examples.map((example, index) => (
-              <Card key={index} variant="elevated" hover>
-                <CardHeader>
+              <Card key={index} variant="elevated" hover className="bg-white">
+                <CardHeader className="border-b border-neutral-200 bg-neutral-50">
                   <div className="flex items-center justify-between">
-                    <Badge variant="primary">{example.category}</Badge>
+                    <Badge variant="secondary" className="bg-neutral-100 text-neutral-700 border-neutral-300">
+                      {example.category}
+                    </Badge>
                     <ComplexityBadge level={example.complexity} />
                   </div>
                 </CardHeader>
 
-                <CardBody>
+                <CardBody className="bg-white">
                   <div className="space-y-6">
                     <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 leading-snug">
                       {example.title}
                     </h3>
-                    <p className="text-base text-neutral-600 leading-relaxed">
+                    <p className="text-base text-neutral-700 leading-relaxed">
                       {example.description}
                     </p>
 
                     {/* Components Used */}
-                    <div className="space-y-3">
-                      <div className="text-sm font-semibold text-neutral-900">
-                        Components Used:
+                    <div className="space-y-3 pt-2 border-t border-neutral-200">
+                      <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wide">
+                        Components Used
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {example.componentsUsed.map((comp, i) => (
@@ -78,14 +80,14 @@ export default function ExamplesPage() {
                     </div>
 
                     {/* Features */}
-                    <div className="space-y-3">
-                      <div className="text-sm font-semibold text-neutral-900">
-                        Key Features:
+                    <div className="space-y-3 pt-2 border-t border-neutral-200">
+                      <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wide">
+                        Key Features
                       </div>
-                      <ul className="text-sm text-neutral-600 space-y-2">
+                      <ul className="text-sm text-neutral-700 space-y-2">
                         {example.features.map((feature, i) => (
                           <li key={i} className="flex items-start gap-2">
-                            <span className="text-success-500 flex-shrink-0 mt-0.5">✓</span>
+                            <span className="text-green-600 flex-shrink-0 mt-0.5 font-semibold">✓</span>
                             <span className="leading-relaxed">{feature}</span>
                           </li>
                         ))}
@@ -94,7 +96,7 @@ export default function ExamplesPage() {
                   </div>
                 </CardBody>
 
-                <CardFooter>
+                <CardFooter className="bg-neutral-50 border-t border-neutral-200">
                   <div className="flex gap-3 w-full">
                     <Link href={`/examples/${example.slug}`} className="flex-1">
                       <Button variant="primary" isFullWidth>View Demo</Button>
@@ -148,12 +150,6 @@ export default function ExamplesPage() {
  * Complexity badge component using library Badge
  */
 function ComplexityBadge({ level }: { level: ComplexityLevel }) {
-  const variantMap: Record<ComplexityLevel, 'success' | 'warning' | 'error'> = {
-    beginner: 'success',
-    intermediate: 'warning',
-    advanced: 'error',
-  };
-
   const labels = {
     beginner: 'Beginner',
     intermediate: 'Intermediate',
@@ -161,7 +157,7 @@ function ComplexityBadge({ level }: { level: ComplexityLevel }) {
   };
 
   return (
-    <Badge variant={variantMap[level]} size="sm">
+    <Badge variant="secondary" size="sm" className="bg-neutral-100 text-neutral-700 border-neutral-300">
       {labels[level]}
     </Badge>
   );
