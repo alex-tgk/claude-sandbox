@@ -110,6 +110,13 @@ export type {
   SortDirection,
 } from './organisms/data-table/DataTable';
 
+// Command Palette
+export { CommandPalette } from './organisms/command-palette/CommandPalette';
+export type {
+  CommandPaletteProps,
+  CommandItem,
+} from './organisms/command-palette/CommandPalette';
+
 // ===== TEMPLATES =====
 export { DashboardLayout } from './templates/DashboardLayout';
 export type { DashboardLayoutProps } from './templates/DashboardLayout';

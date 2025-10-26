@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { Dialog } from './Dialog';
-import { Button } from '../button/Button';
+import { Button } from '../../atoms/button/Button';
 
 /**
  * Dialog component for modal interactions.

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Tooltip } from './Tooltip';
-import { Button } from '../button/Button';
+import { Button } from '../../atoms/button/Button';
 
 /**
  * Tooltip component displays contextual information when hovering or focusing on an element.
