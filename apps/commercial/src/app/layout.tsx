@@ -3,13 +3,13 @@ import Link from 'next/link';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Modular UI System - Enterprise-Grade React Components',
-  description: 'A production-ready, accessible React component library built with TypeScript and Tailwind CSS. IBM Carbon Design System inspired aesthetic.',
-  keywords: ['React', 'Components', 'UI Library', 'TypeScript', 'Tailwind CSS', 'Accessible', 'IBM Carbon'],
-  authors: [{ name: 'Modular UI Team' }],
+  title: 'SaaSquatch - Referral Marketing & Customer Loyalty Platform',
+  description: 'Turn customers into champions with powerful referral programs, loyalty rewards, and viral growth campaigns. Trusted by 12,500+ companies.',
+  keywords: ['Referral Marketing', 'Customer Loyalty', 'Referral Program', 'Loyalty Rewards', 'Customer Acquisition', 'Growth Marketing'],
+  authors: [{ name: 'SaaSquatch Team' }],
   openGraph: {
-    title: 'Modular UI System',
-    description: 'Enterprise-Grade React Components',
+    title: 'SaaSquatch - Referral Marketing Platform',
+    description: 'Turn Customers into Champions',
     type: 'website',
   },
 };
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
  */
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/components', label: 'Components' },
-  { href: '/examples', label: 'Examples' },
-  { href: '/docs', label: 'Documentation' },
+  { href: '/examples', label: 'Programs' },
+  { href: '/components', label: 'Features' },
+  { href: '/docs', label: 'Resources' },
   { href: '/pricing', label: 'Pricing' },
 ] as const;
 
 /**
- * Root layout component for the commercial showcase website.
+ * Root layout component for the SaaSquatch website.
  * Includes global navigation, footer, and metadata.
  */
 export default function RootLayout({
@@ -46,8 +46,8 @@ export default function RootLayout({
                 href="/"
                 className="flex items-center space-x-2 font-bold text-xl text-neutral-900 hover:text-primary-500 transition-colors"
               >
-                <div className="h-8 w-8 bg-primary-500" />
-                <span>Modular UI</span>
+                <div className="h-8 w-8 bg-primary-500 flex items-center justify-center text-white text-xs font-bold">SQ</div>
+                <span>SaaSquatch</span>
               </Link>
 
               {/* Desktop Navigation */}
@@ -66,18 +66,16 @@ export default function RootLayout({
               {/* CTA Button */}
               <div className="flex items-center space-x-4">
                 <Link
-                  href="https://github.com/yourusername/modular-ui"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/docs"
                   className="hidden sm:inline-flex items-center text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
                 >
-                  GitHub
+                  Sign In
                 </Link>
                 <Link
                   href="/docs"
                   className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-primary-500 hover:bg-primary-600 focus-ring transition-colors"
                 >
-                  Get Started
+                  Start Free Trial
                 </Link>
               </div>
 
@@ -118,12 +116,12 @@ export default function RootLayout({
               {/* Brand */}
               <div className="col-span-1 md:col-span-2">
                 <Link href="/" className="flex items-center space-x-2 font-bold text-xl text-neutral-900">
-                  <div className="h-8 w-8 bg-primary-500" />
-                  <span>Modular UI</span>
+                  <div className="h-8 w-8 bg-primary-500 flex items-center justify-center text-white text-xs font-bold">SQ</div>
+                  <span>SaaSquatch</span>
                 </Link>
                 <p className="mt-4 text-sm text-neutral-600 max-w-md">
-                  Enterprise-grade React component library built with TypeScript and Tailwind CSS.
-                  Accessible, customizable, and production-ready.
+                  Turn customers into champions with powerful referral programs and loyalty rewards.
+                  Trusted by 12,500+ companies to drive growth through customer advocacy.
                 </p>
               </div>
 
@@ -132,18 +130,18 @@ export default function RootLayout({
                 <h3 className="text-sm font-semibold text-neutral-900">Product</h3>
                 <ul className="mt-4 space-y-2">
                   <li>
-                    <Link href="/components" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
-                      Components
+                    <Link href="/examples" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+                      Programs
                     </Link>
                   </li>
                   <li>
-                    <Link href="/examples" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
-                      Examples
+                    <Link href="/components" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+                      Features
                     </Link>
                   </li>
                   <li>
                     <Link href="/docs" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
-                      Documentation
+                      Integrations
                     </Link>
                   </li>
                   <li>
@@ -159,18 +157,18 @@ export default function RootLayout({
                 <h3 className="text-sm font-semibold text-neutral-900">Resources</h3>
                 <ul className="mt-4 space-y-2">
                   <li>
-                    <a href="https://github.com" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
-                      GitHub
+                    <Link href="/docs" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+                      Documentation
+                    </Link>
+                  </li>
+                  <li>
+                    <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+                      Case Studies
                     </a>
                   </li>
                   <li>
                     <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
-                      Changelog
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
-                      License
+                      Blog
                     </a>
                   </li>
                   <li>
@@ -185,7 +183,7 @@ export default function RootLayout({
             {/* Bottom Bar */}
             <div className="mt-12 border-t border-neutral-200 pt-8 flex flex-col md:flex-row justify-between items-center">
               <p className="text-sm text-neutral-600">
-                © {new Date().getFullYear()} Modular UI System. All rights reserved.
+                © {new Date().getFullYear()} SaaSquatch. All rights reserved.
               </p>
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <a href="#" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">

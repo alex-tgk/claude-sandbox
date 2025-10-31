@@ -24,52 +24,52 @@ import {
 } from '@modular-ui/system';
 
 /**
- * Landing page for the Modular UI System commercial showcase.
- * Built entirely using components from the library to showcase them in action.
+ * SaaSquatch - Referral Marketing & Customer Loyalty Platform
+ * A demonstration SaaS website built with the Modular UI System.
  */
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-20 pb-24 md:pt-32 md:pb-40 bg-gradient-to-b from-white to-neutral-50">
+      <section className="pt-20 pb-24 md:pt-32 md:pb-40 bg-gradient-to-b from-primary-50 to-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="animate-slide-up">
-              <Badge variant="info" size="lg">⚠️ Alpha: Active Development</Badge>
+              <Badge variant="success" size="lg">🚀 Turn Customers into Champions</Badge>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-tight animate-slide-up animation-delay-100">
-              Built for<br />
-              <span className="inline-block mt-2">Modern Development</span>
+              Grow Your Business<br />
+              <span className="inline-block mt-2 bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">Through Referrals</span>
             </h1>
 
             <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed animate-slide-up animation-delay-200">
-              Everything you need to build enterprise applications with confidence.
+              SaaSquatch helps you launch referral programs, loyalty rewards, and viral growth campaigns that turn your customers into your best marketing channel.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 pt-4 animate-slide-up animation-delay-300">
               <Link href="/docs">
                 <Button variant="primary" size="lg">
-                  Get Started →
-                </Button>
-              </Link>
-              <Link href="/components">
-                <Button variant="outline" size="lg">
-                  View Components
+                  Start Free Trial →
                 </Button>
               </Link>
               <Link href="/examples">
+                <Button variant="outline" size="lg">
+                  See Demo
+                </Button>
+              </Link>
+              <Link href="/pricing">
                 <Button variant="ghost" size="lg">
-                  See Examples
+                  View Pricing
                 </Button>
               </Link>
             </div>
 
             <div className="flex flex-wrap justify-center gap-2 pt-2">
-              <Tag variant="success">35 Components</Tag>
-              <Tag variant="info">TypeScript Strict</Tag>
-              <Tag variant="secondary">WCAG 2.2 AA Target</Tag>
-              <Tag variant="primary">MIT License</Tag>
+              <Tag variant="success">14-Day Free Trial</Tag>
+              <Tag variant="info">No Credit Card Required</Tag>
+              <Tag variant="secondary">Setup in 5 Minutes</Tag>
+              <Tag variant="primary">SOC 2 Compliant</Tag>
             </div>
           </div>
         </div>
@@ -78,42 +78,46 @@ export default function HomePage() {
       {/* Stats Section with StatCards */}
       <section className="py-16 md:py-20 border-y border-neutral-200 bg-white">
         <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-semibold mb-2">Trusted by Growing Companies</h2>
+            <p className="text-neutral-600">Join thousands of businesses growing through referrals</p>
+          </div>
           <Grid cols={4} gap="8" className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             <StatCard
-              label="Total Components"
-              value="35"
-              delta="+4 this month"
+              label="Active Programs"
+              value="12,500+"
+              delta="+850 this month"
               trend="up"
             />
             <StatCard
-              label="Test Coverage"
-              value="97.2%"
-              delta="478/492 passing"
+              label="Referrals Generated"
+              value="2.4M"
+              delta="+15% from last month"
               trend="up"
             />
             <StatCard
-              label="TypeScript"
-              value="100%"
-              delta="Strict mode"
+              label="Average Conversion"
+              value="24%"
+              delta="3x industry average"
               trend="up"
             />
             <StatCard
-              label="Status"
-              value="Alpha"
-              delta="Active development"
+              label="Customer Satisfaction"
+              value="4.9/5"
+              delta="Based on 3,200+ reviews"
               trend="up"
             />
           </Grid>
         </div>
       </section>
 
-      {/* Alert Banner */}
+      {/* Social Proof Banner */}
       <section className="py-12 md:py-16">
         <div className="container-custom">
-          <Alert variant="warning">
-            ⚠️ <strong>Alpha Status:</strong> v0.2.0 - Under active development. API may change. Includes 35 components, 5 themes, and 3 example applications.
-            <Link href="/examples" className="ml-2 underline font-medium">
-              View examples →
+          <Alert variant="success">
+            🎉 <strong>New:</strong> Advanced analytics and AI-powered reward optimization now available on Pro and Enterprise plans.
+            <Link href="/pricing" className="ml-2 underline font-medium">
+              Upgrade now →
             </Link>
           </Alert>
         </div>
@@ -123,12 +127,12 @@ export default function HomePage() {
       <section className="py-20 md:py-32 bg-neutral-50">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <Badge variant="primary">Features</Badge>
+            <Badge variant="primary">Platform Features</Badge>
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
-              Built for Modern Development
+              Everything You Need to Scale
             </h2>
             <p className="text-lg md:text-xl text-neutral-600 leading-relaxed">
-              Everything you need to build enterprise applications with confidence.
+              Build powerful referral programs with our comprehensive platform designed for growth.
             </p>
           </div>
 
@@ -155,36 +159,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Component Categories with Interactive Cards */}
+      {/* Program Types with Interactive Cards */}
       <section className="py-20 md:py-32 bg-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <Badge variant="success">Component Library</Badge>
+            <Badge variant="success">Program Types</Badge>
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
-              Comprehensive Component Collection
+              Programs for Every Growth Strategy
             </h2>
             <p className="text-lg md:text-xl text-neutral-600 leading-relaxed">
-              From basic atoms to complex organisms. All components are accessible, tested, and documented.
+              From simple referral programs to sophisticated loyalty systems. Launch any campaign in minutes.
             </p>
           </div>
 
-          <Tabs defaultValue="atoms">
+          <Tabs defaultValue="referral">
             <TabList className="mb-12">
-              <Tab value="atoms">Atoms (19)</Tab>
-              <Tab value="molecules">Molecules (10)</Tab>
-              <Tab value="organisms">Organisms (6)</Tab>
+              <Tab value="referral">Referral Programs</Tab>
+              <Tab value="loyalty">Loyalty & Rewards</Tab>
+              <Tab value="partner">Partner Programs</Tab>
             </TabList>
 
-            <TabPanel value="atoms">
+            <TabPanel value="referral">
               <Grid cols={4} gap="md" className="grid-cols-2 md:grid-cols-4">
-                {atomComponents.map((comp, i) => (
-                  <Link key={i} href="/components">
+                {referralPrograms.map((program, i) => (
+                  <Link key={i} href="/examples">
                     <Card variant="outlined" hover clickable>
                       <CardBody>
                         <Stack direction="column" gap="sm" align="center">
-                          <div className="text-3xl">{comp.icon}</div>
-                          <h4 className="text-sm font-semibold">{comp.name}</h4>
-                          <Badge size="sm" variant="info">{comp.count}</Badge>
+                          <div className="text-3xl">{program.icon}</div>
+                          <h4 className="text-sm font-semibold text-center">{program.name}</h4>
+                          <Badge size="sm" variant="info">{program.type}</Badge>
                         </Stack>
                       </CardBody>
                     </Card>
@@ -193,16 +197,16 @@ export default function HomePage() {
               </Grid>
             </TabPanel>
 
-            <TabPanel value="molecules">
+            <TabPanel value="loyalty">
               <Grid cols={4} gap="md" className="grid-cols-2 md:grid-cols-4">
-                {moleculeComponents.map((comp, i) => (
-                  <Link key={i} href="/components">
+                {loyaltyPrograms.map((program, i) => (
+                  <Link key={i} href="/examples">
                     <Card variant="outlined" hover clickable>
                       <CardBody>
                         <Stack direction="column" gap="sm" align="center">
-                          <div className="text-3xl">{comp.icon}</div>
-                          <h4 className="text-sm font-semibold">{comp.name}</h4>
-                          <Badge size="sm" variant="success">{comp.count}</Badge>
+                          <div className="text-3xl">{program.icon}</div>
+                          <h4 className="text-sm font-semibold text-center">{program.name}</h4>
+                          <Badge size="sm" variant="success">{program.type}</Badge>
                         </Stack>
                       </CardBody>
                     </Card>
@@ -211,16 +215,16 @@ export default function HomePage() {
               </Grid>
             </TabPanel>
 
-            <TabPanel value="organisms">
+            <TabPanel value="partner">
               <Grid cols={4} gap="md" className="grid-cols-2 md:grid-cols-4">
-                {organismComponents.map((comp, i) => (
-                  <Link key={i} href="/components">
+                {partnerPrograms.map((program, i) => (
+                  <Link key={i} href="/examples">
                     <Card variant="outlined" hover clickable>
                       <CardBody>
                         <Stack direction="column" gap="sm" align="center">
-                          <div className="text-3xl">{comp.icon}</div>
-                          <h4 className="text-sm font-semibold">{comp.name}</h4>
-                          <Badge size="sm" variant="warning">{comp.count}</Badge>
+                          <div className="text-3xl">{program.icon}</div>
+                          <h4 className="text-sm font-semibold text-center">{program.name}</h4>
+                          <Badge size="sm" variant="warning">{program.type}</Badge>
                         </Stack>
                       </CardBody>
                     </Card>
@@ -231,9 +235,9 @@ export default function HomePage() {
           </Tabs>
 
           <div className="mt-16 text-center">
-            <Link href="/components">
+            <Link href="/examples">
               <Button variant="primary" size="lg">
-                Explore All Components →
+                Explore All Program Types →
               </Button>
             </Link>
           </div>
@@ -242,39 +246,39 @@ export default function HomePage() {
 
       <Divider />
 
-      {/* Real-World Examples Section */}
+      {/* Use Cases Section */}
       <section className="py-20 md:py-32 bg-neutral-50">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <Badge variant="info">Example Applications</Badge>
+            <Badge variant="info">Success Stories</Badge>
             <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
-              Real-World Examples
+              Built for Every Industry
             </h2>
             <p className="text-lg md:text-xl text-neutral-600 leading-relaxed">
-              See how components work together in complete application examples (alpha quality).
+              See how companies across industries use SaaSquatch to drive growth through referrals.
             </p>
           </div>
 
           <Grid cols={2} gap="8" className="grid-cols-1 lg:grid-cols-2">
-            {examples.map((example, index) => (
+            {useCases.map((useCase, index) => (
               <Card key={index} variant="elevated" hover>
                 <CardHeader>
                   <Stack direction="row" justify="between" align="center">
-                    <h3 className="text-xl font-semibold">{example.title}</h3>
-                    <Badge variant={example.badgeVariant as any}>{example.complexity}</Badge>
+                    <h3 className="text-xl font-semibold">{useCase.title}</h3>
+                    <Badge variant={useCase.badgeVariant as any}>{useCase.industry}</Badge>
                   </Stack>
                 </CardHeader>
                 <CardBody>
                   <Stack direction="column" gap="md">
-                    <p className="text-neutral-600">{example.description}</p>
+                    <p className="text-neutral-600">{useCase.description}</p>
                     <ProgressBar
-                      value={example.completeness}
+                      value={useCase.growth}
                       tone="brand"
-                      label={`${example.completeness}% Complete`}
+                      label={`${useCase.growth}% growth achieved`}
                     />
                     <Stack direction="row" gap="xs" className="flex-wrap">
-                      {example.components.map((comp, i) => (
-                        <Tag key={i} size="sm" variant="secondary">{comp}</Tag>
+                      {useCase.features.map((feature, i) => (
+                        <Tag key={i} size="sm" variant="secondary">{feature}</Tag>
                       ))}
                     </Stack>
                   </Stack>
@@ -282,10 +286,10 @@ export default function HomePage() {
                 <CardFooter>
                   <Stack direction="row" gap="sm" className="w-full">
                     <Link href="/examples" className="flex-1">
-                      <Button variant="primary" isFullWidth>View Demo</Button>
+                      <Button variant="primary" isFullWidth>Read Case Study</Button>
                     </Link>
-                    <Link href="/examples">
-                      <Button variant="outline">Code</Button>
+                    <Link href="/docs">
+                      <Button variant="outline">Learn More</Button>
                     </Link>
                   </Stack>
                 </CardFooter>
@@ -296,23 +300,23 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section with Card */}
-      <section className="py-20 md:py-32 bg-primary-500">
+      <section className="py-20 md:py-32 bg-gradient-to-br from-primary-600 to-primary-500">
         <div className="container-custom">
-          <Card variant="flat" size="lg" className="bg-primary-600/20 border-2 border-white/20 max-w-4xl mx-auto">
+          <Card variant="flat" size="lg" className="bg-white/10 border-2 border-white/20 max-w-4xl mx-auto backdrop-blur-sm">
             <CardBody>
               <div className="text-center text-white space-y-8 py-8">
-                <Badge variant="secondary" size="lg">Ready to Start?</Badge>
+                <Badge variant="secondary" size="lg">Start Growing Today</Badge>
                 <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white">
-                  Start Building Today
+                  Launch Your Referral Program
                 </h2>
-                <p className="text-lg md:text-xl text-primary-100 max-w-2xl mx-auto leading-relaxed">
-                  Explore 35 Carbon-inspired components in alpha. Perfect for prototyping
-                  and development. Full documentation and examples included.
+                <p className="text-lg md:text-xl text-primary-50 max-w-2xl mx-auto leading-relaxed">
+                  Join 12,500+ companies using SaaSquatch to turn customers into advocates.
+                  Start your 14-day free trial today, no credit card required.
                 </p>
                 <div className="flex flex-wrap justify-center gap-3 pt-4">
                   <Link href="/docs">
                     <Button variant="secondary" size="lg">
-                      Read Documentation
+                      Start Free Trial →
                     </Button>
                   </Link>
                   <Link href="/pricing">
@@ -321,8 +325,8 @@ export default function HomePage() {
                     </Button>
                   </Link>
                 </div>
-                <div className="text-sm text-primary-100 pt-2">
-                  Open source • MIT License • Active development
+                <div className="text-sm text-primary-50 pt-2">
+                  14-day free trial • No credit card required • Setup in 5 minutes
                 </div>
               </div>
             </CardBody>
@@ -335,104 +339,97 @@ export default function HomePage() {
 
 const features = [
   {
-    icon: '🎨',
-    title: 'IBM Carbon Inspired',
-    description: 'Sharp, professional aesthetic with clean lines and consistent spacing.',
-    badge: 'Design System',
+    icon: '🎯',
+    title: 'Customizable Programs',
+    description: 'Build referral, loyalty, and partner programs tailored to your unique business goals.',
+    badge: 'Flexible',
   },
   {
-    icon: '♿',
-    title: 'Accessibility Focused',
-    description: 'Targeting WCAG 2.2 Level AA compliance with keyboard and screen reader support.',
-    badge: 'A11y',
+    icon: '📊',
+    title: 'Advanced Analytics',
+    description: 'Track performance, measure ROI, and optimize campaigns with real-time insights.',
+    badge: 'Data-Driven',
   },
   {
     icon: '⚡',
-    title: 'TypeScript Native',
-    description: 'Written in TypeScript with comprehensive type definitions.',
-    badge: 'Type-Safe',
+    title: 'Quick Setup',
+    description: 'Launch your first program in minutes with pre-built templates and easy integration.',
+    badge: 'Fast',
   },
   {
-    icon: '🎯',
-    title: 'Tailwind CSS',
-    description: 'Built with Tailwind for maximum customization and consistency.',
-    badge: 'Customizable',
+    icon: '🔗',
+    title: 'Seamless Integration',
+    description: 'Connect with your existing tools via REST API, webhooks, and native integrations.',
+    badge: 'Connected',
   },
   {
-    icon: '📦',
-    title: 'Tree-Shakeable',
-    description: 'Optimized bundle sizes with ESM and tree-shaking support.',
-    badge: 'Optimized',
+    icon: '🎁',
+    title: 'Flexible Rewards',
+    description: 'Offer cash, credits, discounts, or custom rewards that drive engagement.',
+    badge: 'Rewarding',
   },
   {
-    icon: '🧪',
-    title: 'Well Tested',
-    description: '97.2% test coverage (478/492 tests passing) with Vitest and React Testing Library.',
-    badge: 'High Quality',
+    icon: '🔒',
+    title: 'Enterprise Security',
+    description: 'SOC 2 Type II certified with bank-level encryption and fraud prevention.',
+    badge: 'Secure',
   },
 ] as const;
 
-const atomComponents = [
-  { name: 'Button', icon: '🔘', count: '5 variants' },
-  { name: 'Input', icon: '📝', count: '3 sizes' },
-  { name: 'TextArea', icon: '📄', count: 'New!' },
-  { name: 'Checkbox', icon: '☑️', count: '3 states' },
-  { name: 'Radio', icon: '⭕', count: 'Groups' },
-  { name: 'Switch', icon: '🔄', count: '3 sizes' },
-  { name: 'Badge', icon: '🏷️', count: '6 colors' },
-  { name: 'Avatar', icon: '👤', count: '4 sizes' },
-  { name: 'Tag', icon: '🔖', count: '6 variants' },
-  { name: 'Spinner', icon: '⏳', count: '4 sizes' },
-  { name: 'Grid', icon: '📐', count: 'New!' },
-  { name: 'Stack', icon: '📚', count: 'New!' },
-  { name: 'Flex', icon: '🔀', count: 'New!' },
-  { name: 'Divider', icon: '➖', count: 'Layouts' },
-  { name: 'Progress', icon: '📊', count: 'Bars' },
-  { name: 'IconButton', icon: '⚡', count: '5 variants' },
+const referralPrograms = [
+  { name: 'Friend Referral', icon: '👥', type: 'Classic' },
+  { name: 'Gift Cards', icon: '🎁', type: 'Popular' },
+  { name: 'Influencer', icon: '⭐', type: 'Trending' },
+  { name: 'Employee Advocacy', icon: '👔', type: 'B2B' },
+  { name: 'Share & Earn', icon: '💰', type: 'Revenue' },
+  { name: 'Milestone Rewards', icon: '🎯', type: 'Advanced' },
+  { name: 'Social Sharing', icon: '📱', type: 'Viral' },
+  { name: 'Email Referral', icon: '📧', type: 'Direct' },
 ];
 
-const moleculeComponents = [
-  { name: 'Alert', icon: '⚠️', count: '4 variants' },
-  { name: 'Select', icon: '📋', count: 'With search' },
-  { name: 'Tooltip', icon: '💬', count: '4 positions' },
-  { name: 'StatCard', icon: '📊', count: 'With trends' },
-  { name: 'Stepper', icon: '🪜', count: 'Progress' },
-  { name: 'EmptyState', icon: '📭', count: 'Placeholders' },
-  { name: 'SearchInput', icon: '🔍', count: 'Search' },
-  { name: 'SegmentedControl', icon: '🎛️', count: 'Toggle' },
+const loyaltyPrograms = [
+  { name: 'Points System', icon: '⭐', type: 'Core' },
+  { name: 'VIP Tiers', icon: '👑', type: 'Premium' },
+  { name: 'Cashback', icon: '💵', type: 'Revenue' },
+  { name: 'Punch Cards', icon: '🎫', type: 'Simple' },
+  { name: 'Birthday Rewards', icon: '🎂', type: 'Engagement' },
+  { name: 'Anniversary Gifts', icon: '🎊', type: 'Retention' },
+  { name: 'Early Access', icon: '🔓', type: 'Exclusive' },
+  { name: 'Free Shipping', icon: '📦', type: 'Benefit' },
 ];
 
-const organismComponents = [
-  { name: 'Card', icon: '🎴', count: '3 variants' },
-  { name: 'Dialog', icon: '🪟', count: '5 sizes' },
-  { name: 'Tabs', icon: '📑', count: 'Carbon style' },
-  { name: 'DataTable', icon: '📈', count: 'Full featured' },
-  { name: 'CommandPalette', icon: '⌘', count: 'Keyboard UI' },
+const partnerPrograms = [
+  { name: 'Affiliate', icon: '🤝', type: 'Revenue Share' },
+  { name: 'Reseller', icon: '🏪', type: 'Channel' },
+  { name: 'Integration Partners', icon: '🔌', type: 'Tech' },
+  { name: 'Agency Program', icon: '🎨', type: 'Service' },
+  { name: 'Co-Marketing', icon: '📢', type: 'Joint' },
+  { name: 'White Label', icon: '🏷️', type: 'Enterprise' },
 ];
 
-const examples = [
+const useCases = [
   {
-    title: 'Analytics Dashboard',
-    description: 'Analytics interface with charts, KPIs, and data tables using Carbon design patterns.',
-    complexity: 'Example',
-    badgeVariant: 'info',
-    completeness: 100,
-    components: ['StatCard', 'ProgressBar', 'DataTable', 'Grid', 'Badge'],
+    title: 'E-commerce Growth',
+    description: 'Online retailer increased customer acquisition by 156% using friend referral and loyalty rewards programs.',
+    industry: 'Retail',
+    badgeVariant: 'success',
+    growth: 156,
+    features: ['Friend Referral', 'Points System', 'VIP Tiers', 'Email Campaigns'],
   },
   {
-    title: 'Product Catalog',
-    description: 'E-commerce product grid with filtering, search, and responsive layout primitives.',
-    complexity: 'Example',
+    title: 'SaaS Expansion',
+    description: 'B2B software company reduced CAC by 43% while scaling to 10,000+ active referrers through partner programs.',
+    industry: 'Technology',
     badgeVariant: 'info',
-    completeness: 100,
-    components: ['Card', 'Grid', 'Badge', 'Tag', 'Button', 'Stack'],
+    growth: 243,
+    features: ['Affiliate Program', 'Partner Portal', 'Tiered Commissions', 'Analytics'],
   },
   {
-    title: 'Settings & Profile',
-    description: 'User settings interface with tabs, form controls, and validation patterns.',
-    complexity: 'Example',
-    badgeVariant: 'info',
-    completeness: 100,
-    components: ['Tabs', 'Input', 'TextArea', 'Checkbox', 'Switch', 'Button'],
+    title: 'Subscription Service',
+    description: 'Streaming platform improved retention by 68% with milestone rewards and exclusive member benefits.',
+    industry: 'Media',
+    badgeVariant: 'warning',
+    growth: 168,
+    features: ['Milestone Rewards', 'Early Access', 'Social Sharing', 'Personalization'],
   },
 ];
